@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Ropa</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Tu CSS -->
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" href="#">TiendaRopa</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-center">
+        <li class="nav-item"><a class="nav-link active" href="#">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Hombres</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Mujeres</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Niños</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Ofertas</a></li>
+
+        <!-- Favoritos -->
+        <li class="nav-item ms-3">
+          <a class="nav-link position-relative" href="#" id="favoritos">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+              <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523.98-.641 2.21.314 3.197L8 15l6.286-8.75c.955-.987.837-2.217.314-3.197C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 1c1.747-1.99 5.293-1.99 7.04.004C16.832 2.988 16.66 5.386 14.7 6.854L8 14.5 1.3 6.854C-.66 5.386-.832 2.988 1.96.998 3.707-.993 7.253-.993 8 1z"/>
+            </svg>
+            <span class="badge bg-danger position-absolute top-0 start-100 translate-middle p-1 rounded-circle" id="fav-count">0</span>
+          </a>
+        </li>
+
+        <!-- Carrito -->
+        <li class="nav-item ms-3">
+          <a class="nav-link position-relative" href="#" id="carrito">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+              <path d="M0 1.5A.5.5 0 0 1 .5 1h1a.5.5 0 0 1 .485.379L2.89 5H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 14H4a.5.5 0 0 1-.491-.408L1.01 2H.5a.5.5 0 0 1-.5-.5zm3.14 4l1.25 6.5h8.22l1.25-6.5H3.14zM5 12a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 1a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+            </svg>
+            <span class="badge bg-danger position-absolute top-0 start-100 translate-middle p-1 rounded-circle" id="cart-count">0</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Barra de búsqueda -->
+<div class="container mt-3">
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Buscar productos...">
+    <button class="btn btn-primary" type="button">Buscar</button>
+  </div>
+</div>
+
+<!-- Carrusel principal -->
+<div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="img/carrusel1.jpg" class="d-block w-100" alt="Promo 1">
+    </div>
+    <div class="carousel-item">
+      <img src="img/carrusel2.jpg" class="d-block w-100" alt="Promo 2">
+    </div>
+    <div class="carousel-item">
+      <img src="img/carrusel3.jpg" class="d-block w-100" alt="Promo 3">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+
+<!-- Sección de categorías -->
+<div class="container mt-5">
+  <h2 class="mb-4">Categorías</h2>
+  <div class="row g-3">
+    <div class="col-md-3">
+      <div class="card category-card">
+        <img src="img/hombres.jpg" class="card-img-top" alt="Hombres">
+        <div class="card-body text-center">
+          <h5 class="card-title">Hombres</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card category-card">
+        <img src="img/mujeres.jpg" class="card-img-top" alt="Mujeres">
+        <div class="card-body text-center">
+          <h5 class="card-title">Mujeres</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card category-card">
+        <img src="img/ninos.jpg" class="card-img-top" alt="Niños">
+        <div class="card-body text-center">
+          <h5 class="card-title">Niños</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card category-card">
+        <img src="img/ofertas.jpg" class="card-img-top" alt="Ofertas">
+        <div class="card-body text-center">
+          <h5 class="card-title">Ofertas</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Productos destacados -->
+<div class="container mt-5">
+  <h2 class="mb-4">Productos Destacados</h2>
+  <div class="row g-4">
+    <div class="col-md-3">
+      <div class="card product-card h-100">
+        <img src="img/producto1.jpg" class="card-img-top" alt="Producto 1">
+        <div class="card-body text-center">
+          <h5 class="card-title">Camisa Casual</h5>
+          <p class="card-text">$25.990</p>
+          <button class="btn btn-outline-primary add-cart">Comprar</button>
+          <button class="btn btn-outline-danger add-fav">♥</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card product-card h-100">
+        <img src="img/producto2.jpg" class="card-img-top" alt="Producto 2">
+        <div class="card-body text-center">
+          <h5 class="card-title">Chaqueta</h5>
+          <p class="card-text">$49.990</p>
+          <button class="btn btn-outline-primary add-cart">Comprar</button>
+          <button class="btn btn-outline-danger add-fav">♥</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card product-card h-100">
+        <img src="img/producto3.jpg" class="card-img-top" alt="Producto 3">
+        <div class="card-body text-center">
+          <h5 class="card-title">Pantalón</h5>
+          <p class="card-text">$19.990</p>
+          <button class="btn btn-outline-primary add-cart">Comprar</button>
+          <button class="btn btn-outline-danger add-fav">♥</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card product-card h-100">
+        <img src="img/producto4.jpg" class="card-img-top" alt="Producto 4">
+        <div class="card-body text-center">
+          <h5 class="card-title">Zapatos</h5>
+          <p class="card-text">$29.990</p>
+          <button class="btn btn-outline-primary add-cart">Comprar</button>
+          <button class="btn btn-outline-danger add-fav">♥</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Tu JS -->
+<script src="js/metodos.js"></script>
+
+</body>
+</html>

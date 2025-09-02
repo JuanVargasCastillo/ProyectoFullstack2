@@ -1,0 +1,59 @@
+/* Navbar */
+.navbar-brand {
+    color: #007bff;
+    font-size: 1.8rem;
+}
+.navbar-nav .nav-link.active {
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* Carrusel */
+.carousel-inner img {
+    height: 400px;
+    object-fit: cover;
+}
+
+/* Categorías */
+.category-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.category-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Productos */
+.product-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.product-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* Botones */
+.btn-outline-primary {
+    transition: all 0.3s;
+}
+.btn-outline-primary:hover {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+.btn-outline-danger {
+    transition: all 0.3s;
+}
+.btn-outline-danger:hover {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Iconos del navbar */
+.navbar .nav-link svg {
+    vertical-align: middle;
+    color: #007bff;
+}
+.navbar .badge {
+    font-size: 0.65rem;
+}
