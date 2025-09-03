@@ -1,59 +1,109 @@
 /* Navbar */
+.navbar {
+    background-color: #ffffff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.navbar-brand img {
+    max-height: 100px;
+    width: auto;
+}
 .navbar-brand {
-    color: #007bff;
+    color: #82aa31;
     font-size: 1.8rem;
 }
 .navbar-nav .nav-link.active {
     font-weight: bold;
-    color: #007bff;
+    color: #82aa31;
+}
+
+/* Iconos y botones navbar */
+.navbar .nav-link svg {
+    vertical-align: middle;
+    color: #82aa31;
+}
+.navbar .badge {
+    font-size: 0.65rem;
+    background-color: #fdbfd3;
+    color: #ffffff;
+}
+.btn-outline-primary {
+    border-color: #82aa31;
+    color: #82aa31;
+    transition: all 0.3s;
+}
+.btn-outline-primary:hover {
+    background-color: #82aa31;
+    color: #ffffff;
+}
+.btn-success {
+    background-color: #bfd64f;
+    border-color: #bfd64f;
+}
+.btn-success:hover {
+    background-color: #82aa31;
+    border-color: #82aa31;
+}
+
+/* Aviso de envíos */
+.bg-success {
+    background-color: #82aa31 !important;
+}
+.bg-success strong {
+    color: #ffffff;
+}
+
+/* Offcanvas menú lateral */
+.offcanvas-body a.nav-link {
+    padding: 8px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #333;
+    font-weight: 500;
+    text-decoration: none;
+}
+.offcanvas-body a.nav-link:hover {
+    background-color: #fdbfd3;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+.offcanvas-body .collapse ul li a {
+    font-weight: normal;
+    font-size: 0.95rem;
+    padding-left: 15px;
 }
 
 /* Carrusel */
 .carousel-inner img {
     height: 500px;
     object-fit: cover;
-}
-
-/* Categorías */
-.category-card {
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-.category-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    border-radius: 8px;
 }
 
 /* Productos */
-.product-card {
+.card {
+    border: 1px solid #eee;
     transition: transform 0.3s, box-shadow 0.3s;
 }
-.product-card:hover {
+.card:hover {
     transform: scale(1.03);
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
-
-/* Botones */
-.btn-outline-primary {
-    transition: all 0.3s;
+.card-title {
+    color: #000000;
 }
-.btn-outline-primary:hover {
-    background-color: #007bff;
-    color: white;
-    border-color: #007bff;
+.btn-primary {
+    background-color: #fdbfd3;
+    border-color: #fdbfd3;
 }
-.btn-outline-danger {
-    transition: all 0.3s;
-}
-.btn-outline-danger:hover {
-    background-color: #dc3545;
-    color: white;
+.btn-primary:hover {
+    background-color: #82aa31;
+    border-color: #82aa31;
+    color: #fff;
 }
 
-/* Iconos del navbar */
-.navbar .nav-link svg {
-    vertical-align: middle;
-    color: #007bff;
-}
-.navbar .badge {
-    font-size: 0.65rem;
+/* Footer */
+footer {
+    background-color: #ffd8e7 !important;
+    color: #333;
 }
