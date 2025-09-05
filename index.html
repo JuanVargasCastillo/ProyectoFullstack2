@@ -21,7 +21,7 @@
 
     <!-- Logo -->
     <a class="navbar-brand d-flex align-items-center me-3" href="#">
-      <img src="img/logo.png" alt="Logo Tienda" style="max-height:100px; width:auto;">
+      <img src="img/logo.png" alt="Logo Tienda">
     </a>
 
     <!-- Botón hamburguesa (menú lateral) -->
@@ -35,20 +35,33 @@
       <button class="btn btn-outline-primary" type="submit"><i class="bi bi-search"></i></button>
     </form>
 
-    <!-- Carrito + login -->
+    <!-- Carrito + favoritos + login -->
     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center flex-row">
+
+      <!-- Favoritos -->
+      <li class="nav-item me-3">
+        <a class="nav-link position-relative" href="#" id="favoritos">
+          <i class="bi bi-heart fs-4"></i>
+          <span class="badge bg-danger position-absolute top-0 start-100 translate-middle p-1 rounded-circle" id="fav-count">0</span>
+        </a>
+      </li>
+
+      <!-- Carrito -->
       <li class="nav-item me-3">
         <a class="nav-link position-relative" href="#" id="carrito">
           <i class="bi bi-cart3 fs-4"></i>
           <span class="badge bg-danger position-absolute top-0 start-100 translate-middle p-1 rounded-circle" id="cart-count">0</span>
         </a>
       </li>
+
+      <!-- Login / Registro -->
       <li class="nav-item me-2">
         <a class="btn btn-outline-primary" href="#">Iniciar Sesión</a>
       </li>
       <li class="nav-item">
-        <a class="btn btn-success" href="#">Registrarse</a>
+        <a class="btn btn-success" href="registro.html">Registrarse</a>
       </li>
+
     </ul>
   </div>
 </nav>
@@ -68,8 +81,6 @@
     <ul class="list-unstyled">
       <li><a href="#" class="nav-link">Lo Último</a></li>
       <li><a href="#" class="nav-link">Ofertas</a></li>
-
-      <!-- Submenú Hombre -->
       <li>
         <a class="nav-link" data-bs-toggle="collapse" href="#submenuHombre" role="button" aria-expanded="false">
           Hombre <i class="bi bi-chevron-down ms-1"></i>
@@ -83,8 +94,6 @@
           </ul>
         </div>
       </li>
-
-      <!-- Submenú Mujer -->
       <li>
         <a class="nav-link" data-bs-toggle="collapse" href="#submenuMujer" role="button" aria-expanded="false">
           Mujer <i class="bi bi-chevron-down ms-1"></i>
@@ -98,8 +107,6 @@
           </ul>
         </div>
       </li>
-
-      <!-- Submenú Niños -->
       <li>
         <a class="nav-link" data-bs-toggle="collapse" href="#submenuNinos" role="button" aria-expanded="false">
           Niños <i class="bi bi-chevron-down ms-1"></i>
@@ -149,7 +156,8 @@
         <div class="card-body text-center">
           <h5 class="card-title">Camisa Casual</h5>
           <p class="card-text">$25.990</p>
-          <button class="btn btn-primary">Comprar</button>
+          <button class="btn btn-primary add-cart">Comprar</button>
+          <button class="btn btn-outline-danger add-fav"><i class="bi bi-heart"></i></button>
         </div>
       </div>
     </div>
@@ -159,7 +167,8 @@
         <div class="card-body text-center">
           <h5 class="card-title">Chaqueta</h5>
           <p class="card-text">$49.990</p>
-          <button class="btn btn-primary">Comprar</button>
+          <button class="btn btn-primary add-cart">Comprar</button>
+          <button class="btn btn-outline-danger add-fav"><i class="bi bi-heart"></i></button>
         </div>
       </div>
     </div>
@@ -169,17 +178,19 @@
         <div class="card-body text-center">
           <h5 class="card-title">Pantalón</h5>
           <p class="card-text">$19.990</p>
-          <button class="btn btn-primary">Comprar</button>
+          <button class="btn btn-primary add-cart">Comprar</button>
+          <button class="btn btn-outline-danger add-fav"><i class="bi bi-heart"></i></button>
         </div>
       </div>
     </div>
     <div class="col-md-3 caja">
       <div class="card h-100">
-        <img src="img/pantalon.webp" class="card-img-top" alt="Zapatos">
+        <img src="img/zapatos.webp" class="card-img-top" alt="Zapatos">
         <div class="card-body text-center">
           <h5 class="card-title">Zapatos</h5>
           <p class="card-text">$29.990</p>
-          <button class="btn btn-primary">Comprar</button>
+          <button class="btn btn-primary add-cart">Comprar</button>
+          <button class="btn btn-outline-danger add-fav"><i class="bi bi-heart"></i></button>
         </div>
       </div>
     </div>
@@ -193,5 +204,7 @@
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Tu JS personalizado -->
+<script src="js/metodos.js"></script>
 </body>
 </html>
