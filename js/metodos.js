@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const navbar = loginBtn.closest('ul.navbar-nav');
         const mensaje = document.createElement("li");
         mensaje.classList.add("nav-item", "me-3");
-        mensaje.innerHTML = `<span class="nav-link">¡Bienvenido, ${usuarioLog.nombre}!</span>`;
+        mensaje.innerHTML = `<span class="nav-link">¡Bienvenid@, ${usuarioLog.nombre}!</span>`;
         navbar.insertBefore(mensaje, navbar.firstChild);
 
         // Botón Cerrar Sesión

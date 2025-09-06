@@ -106,8 +106,17 @@ document.addEventListener("DOMContentLoaded", () => {
         usuarios.push(nuevoUsuario);
         localStorage.setItem("usuarios", JSON.stringify(usuarios));
 
+        // Guardar sesión automáticamente
+        localStorage.setItem("usuarioLogueado", JSON.stringify(nuevoUsuario));
+
+        // Mostrar mensaje y redirigir
         erroresDiv.style.color = "green";
-        erroresDiv.textContent = "🎉 Usuario registrado correctamente.";
+        erroresDiv.textContent = "🎉 Usuario registrado correctamente. Redirigiendo...";
+
+        // Redirigir a index
+        window.location.href = "index.html";
+
+        // Limpiar formulario
         form.reset();
         passMessage.textContent = "";
     });

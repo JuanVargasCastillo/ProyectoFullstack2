@@ -28,7 +28,7 @@ formLogin.addEventListener('submit', function(e) {
 
     // Usuario correcto
     localStorage.setItem('usuarioLogueado', JSON.stringify(usuario)); // guardar sesión
-    mensajeLogin.textContent = `¡Bienvenido, ${usuario.nombre}! ✅`;
+    mensajeLogin.textContent = `¡Bienvenid@, ${usuario.nombre}! ✅`;
     mensajeLogin.classList.remove('text-danger');
     mensajeLogin.classList.add('text-success');
 
