@@ -1,27 +1,40 @@
 let cartCount = 0;
 let favCount = 0;
 
-// Navbar botones
-document.getElementById('carrito').addEventListener('click', () => {
+// --- NAVBAR ---
+// Carrito
+document.getElementById('carrito').addEventListener('click', (e) => {
+    e.preventDefault();
     alert('Viendo carrito con ' + cartCount + ' productos');
 });
-document.getElementById('favoritos').addEventListener('click', () => {
+
+// Favoritos
+document.getElementById('favoritos').addEventListener('click', (e) => {
+    e.preventDefault();
     alert('Viendo favoritos con ' + favCount + ' productos');
 });
 
-// Botones en productos
+// --- PRODUCTOS ---
+// Botones "Comprar"
 document.querySelectorAll('.add-cart').forEach(btn => {
     btn.addEventListener('click', () => {
         cartCount++;
         document.getElementById('cart-count').textContent = cartCount;
-        alert('Producto agregado al carrito!');
+        alert('Producto agregado al carrito ✅');
     });
 });
 
+// Botones "Favorito"
 document.querySelectorAll('.add-fav').forEach(btn => {
     btn.addEventListener('click', () => {
         favCount++;
         document.getElementById('fav-count').textContent = favCount;
-        alert('Producto agregado a favoritos!');
+        alert('Producto agregado a favoritos ❤️');
     });
+});
+
+// --- EXTRA ---
+// Evitar que los <a href="#"> recarguen la página
+document.querySelectorAll('a[href="#"]').forEach(link => {
+    link.addEventListener('click', e => e.preventDefault());
 });
