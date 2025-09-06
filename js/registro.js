@@ -1,69 +1,114 @@
-// Variables del formulario
-const form = document.getElementById('formRegistro');
-const nombre = document.getElementById('nombre');
-const correo = document.getElementById('correo');
-const pass = document.getElementById('pass');
-const confirmPass = document.getElementById('confirmPass');
-const telefono = document.getElementById('telefono');
-const regionSelect = document.getElementById('region');
-const comunaSelect = document.getElementById('comuna');
-const errores = document.getElementById('errores');
+// registro.js
+document.addEventListener("DOMContentLoaded", () => {
+    const regionSelect = document.getElementById("region");
+    const comunaSelect = document.getElementById("comuna");
+    const passInput = document.getElementById("pass");
+    const confirmPassInput = document.getElementById("confirmPass");
+    const passMessage = document.getElementById("mensajePassword");
+    const form = document.getElementById("formRegistro");
+    const erroresDiv = document.getElementById("errores");
 
-// Expresiones regulares
-const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const regexTelefono = /^[0-9]{9}$/; // teléfono chileno 9 dígitos
+    const regionesYComunas = {
+        "Región Metropolitana": ["Santiago", "Maipú", "Ñuñoa", "Puente Alto", "Providencia"],
+        "Valparaíso": ["Valparaíso", "Viña del Mar", "Quilpué", "Villa Alemana", "Concón"],
+        "Biobío": ["Concepción", "Talcahuano", "Chiguayante", "San Pedro de la Paz"],
+        "Antofagasta": ["Antofagasta", "Calama", "Tocopilla"]
+    };
 
-// Cargar regiones desde API
-fetch('https://apis.digital.gob.cl/dpa/regiones')
-  .then(response => response.json())
-  .then(data => {
-      data.forEach(region => {
-          let option = document.createElement('option');
-          option.value = region.codigo;
-          option.textContent = region.nombre;
-          regionSelect.appendChild(option);
-      });
-  })
-  .catch(error => console.error('Error cargando regiones:', error));
+    Object.keys(regionesYComunas).forEach(region => {
+        const option = document.createElement("option");
+        option.value = region;
+        option.textContent = region;
+        regionSelect.appendChild(option);
+    });
 
-// Cargar comunas según región
-regionSelect.addEventListener('change', () => {
-    let regionCodigo = regionSelect.value;
-    comunaSelect.innerHTML = '<option value="">Seleccione comuna</option>'; // limpiar
-    if(regionCodigo === '') return;
-
-    fetch(`https://apis.digital.gob.cl/dpa/comunas`)
-        .then(res => res.json())
-        .then(data => {
-            const comunasRegion = data.filter(c => c.codigo.substring(0,2) === regionCodigo);
-            comunasRegion.forEach(comuna => {
-                let option = document.createElement('option');
-                option.value = comuna.codigo;
-                option.textContent = comuna.nombre;
-                comunaSelect.appendChild(option);
-            });
+    regionSelect.addEventListener("change", () => {
+        comunaSelect.innerHTML = "<option value=''>Seleccione comuna</option>";
+        const comunas = regionesYComunas[regionSelect.value] || [];
+        comunas.forEach(comuna => {
+            const option = document.createElement("option");
+            option.value = comuna;
+            option.textContent = comuna;
+            comunaSelect.appendChild(option);
         });
-});
+    });
 
-// Validar formulario al enviar
-form.addEventListener('submit', function(e){
-    e.preventDefault();
-    errores.innerHTML = '';
-    let mensajes = [];
+    passInput.addEventListener("input", validarPassword);
+    confirmPassInput.addEventListener("input", validarPassword);
 
-    if(nombre.value.trim() === '') mensajes.push('El nombre es obligatorio.');
-    if(!regexEmail.test(correo.value.trim())) mensajes.push('Correo inválido.');
-    if(pass.value.length < 8) mensajes.push('La contraseña debe tener al menos 8 caracteres.');
-    if(pass.value !== confirmPass.value) mensajes.push('Las contraseñas no coinciden.');
-    if(!regexTelefono.test(telefono.value.trim())) mensajes.push('Teléfono inválido (9 dígitos).');
-    if(regionSelect.value === '') mensajes.push('Debe seleccionar una región.');
-    if(comunaSelect.value === '') mensajes.push('Debe seleccionar una comuna.');
+    function validarPassword() {
+        const pass = passInput.value;
+        const confirm = confirmPassInput.value;
+        const regex = /^(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>])(?=.{8,})/;
 
-    if(mensajes.length > 0){
-        errores.innerHTML = mensajes.join('<br>');
-    } else {
-        alert('Registro exitoso ✔️');
-        form.reset();
-        comunaSelect.innerHTML = '<option value="">Seleccione comuna</option>'; // reset comunas
+        if (!regex.test(pass)) {
+            passMessage.textContent = "⚠️ La contraseña debe tener al menos 8 caracteres, 1 mayúscula y 1 caracter especial.";
+            passMessage.style.color = "red";
+            return false;
+        } else if (confirm && pass !== confirm) {
+            passMessage.textContent = "❌ Las contraseñas no coinciden.";
+            passMessage.style.color = "red";
+            return false;
+        } else if (confirm && pass === confirm) {
+            passMessage.textContent = "✅ Contraseña válida.";
+            passMessage.style.color = "green";
+            return true;
+        } else {
+            passMessage.textContent = "";
+            return false;
+        }
     }
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        erroresDiv.textContent = "";
+        erroresDiv.style.color = "red";
+
+        const nombre = document.getElementById("nombre").value.trim();
+        const correo = document.getElementById("correo").value.trim();
+        const telefono = document.getElementById("telefono").value.trim();
+
+        const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const regexTelefono = /^[0-9]{9}$/;
+
+        if (nombre === "") {
+            erroresDiv.textContent = "El nombre es obligatorio.";
+            return;
+        }
+        if (!regexEmail.test(correo)) {
+            erroresDiv.textContent = "Correo inválido.";
+            return;
+        }
+        if (!validarPassword()) {
+            erroresDiv.textContent = "Corrige los errores en la contraseña.";
+            return;
+        }
+        if (!regexTelefono.test(telefono)) {
+            erroresDiv.textContent = "Teléfono inválido (debe tener 9 dígitos).";
+            return;
+        }
+        if (regionSelect.value === "" || comunaSelect.value === "") {
+            erroresDiv.textContent = "Debe seleccionar región y comuna.";
+            return;
+        }
+
+        // ✅ Todo correcto, guardar en localStorage
+        const nuevoUsuario = {
+            nombre,
+            correo,
+            pass: passInput.value,
+            telefono,
+            region: regionSelect.value,
+            comuna: comunaSelect.value
+        };
+
+        const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+        usuarios.push(nuevoUsuario);
+        localStorage.setItem("usuarios", JSON.stringify(usuarios));
+
+        erroresDiv.style.color = "green";
+        erroresDiv.textContent = "🎉 Usuario registrado correctamente.";
+        form.reset();
+        passMessage.textContent = "";
+    });
 });
