@@ -38,21 +38,22 @@ function render(){
     const div = document.createElement('div');
     div.className = 'card-producto';
     div.innerHTML = `
-      <img src="${p.img}" alt="${p.nombre}">
-      <div class="flex-grow-1">
+      <img src="${p.img}" alt="${p.nombre}" style="width:80px; height:80px; object-fit:cover;">
+      <div class="flex-grow-1 ms-3">
         <strong>${p.nombre}</strong><br>
-        <span class="text-muted">$${formatearPrecio(p.precio)} c/u</span>
+        <span class="precio">$${formatearPrecio(p.precio)} c/u</span>
       </div>
-      <div class="d-flex align-items-center">
+      <div class="d-flex align-items-center ms-auto">
         <button class="btn btn-outline-secondary btn-sm me-1" data-accion="menos" data-i="${i}">-</button>
         <span class="px-2">${p.cantidad}</span>
         <button class="btn btn-outline-secondary btn-sm ms-1 me-3" data-accion="mas" data-i="${i}">+</button>
-        <span class="fw-bold text-warning me-3">$${formatearPrecio(p.precio * p.cantidad)}</span>
-        <button class="btn btn-outline-danger btn-sm" data-accion="eliminar" data-i="${i}">
-          <i class="bi bi-trash"></i>
+        <span class="precio fw-bold me-3">$${formatearPrecio(p.precio * p.cantidad)}</span>
+        <button class="btn btn-sm me-0 p-0 btn-trash" data-accion="eliminar" data-i="${i}">
+          <i class="bi bi-trash fs-5"></i>
         </button>
       </div>
     `;
+
     lista.appendChild(div);
   });
 
@@ -96,15 +97,15 @@ lista.addEventListener('click', (e)=>{
 });
 
 // Aplicar cupón
-btnCupon.addEventListener('click', ()=>{
+btnCupon.addEventListener('click', () => {
   const code = (inputCupon.value || '').trim().toUpperCase();
-  if (code === 'CLUB10'){
+  if (code === 'CLUB10') {
     msgCupon.textContent = 'Cupón CLUB10 aplicado: 10% de descuento.';
-    msgCupon.className = 'small mt-1 text-success';
-  } else if (code === 'BIENVENIDA5'){
+    msgCupon.className = 'small mt-1 msg-cupon-rosado';  // <- tu clase
+  } else if (code === 'BIENVENIDA5') {
     msgCupon.textContent = 'Cupón BIENVENIDA5 aplicado: 5% de descuento.';
-    msgCupon.className = 'small mt-1 text-success';
-  } else if (code === ''){
+    msgCupon.className = 'small mt-1 msg-cupon-rosado';  // <- tu clase
+  } else if (code === '') {
     msgCupon.textContent = 'Se quitó el cupón.';
     msgCupon.className = 'small mt-1 text-muted';
   } else {
@@ -113,6 +114,7 @@ btnCupon.addEventListener('click', ()=>{
   }
   render();
 });
+
 
 // Botones de acción
 document.getElementById('btnSeguir').addEventListener('click', ()=> {

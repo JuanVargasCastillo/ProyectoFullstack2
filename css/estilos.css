@@ -256,6 +256,33 @@ footer {
     transition: background-color 0.3s ease;
 }
 
+.msg-cupon-rosado {
+  color: #ffacc7 !important;
+  font-weight: bold;
+}
+
+
+
+/* --- PRECIOS VERDES --- */
+.precio {
+  color: #111111; 
+  font-weight: bold;
+}
+
+/* --- BASURERO ROSADO --- */
+.btn-trash {
+  color: #f8a9c4;           /* Rosado claro */
+  border: none;
+  background: transparent;
+  transition: color 0.3s ease;
+  font-size: 18px;           /* Ajusta el tamaño del ícono */
+  cursor: pointer;
+}
+
+.btn-trash:hover {
+  color: #ff5c8d;           /* Rosado oscuro */
+}
+
 
 
 
@@ -264,10 +291,9 @@ footer {
 
 
 /* 
-TAMBIEN CAMBIAR COLOR DE BASURERO, CERRAR SESION, BOTON VOLVER
+, CERRAR SESION, BOTON VOLVER
 CAMBIAR INICIAR SESION Y CREAR CUENTA
-VER FAVORITOS, BOTON HAMBURGUESA FUNCIONABLE. CAMBIAR TODO ROJO ASQUEROSO Y AMARILLO 
-ASQUEOROSO NUNCA EN MI VIDA ME GUSTÓ EL AMARILLO
+VER FAVORITOS, BOTON HAMBURGUESA FUNCIONABLE. CAMBIAR TODO ROJO ASQUEROSO
 AGREGAR PIE
 ARREGLAR EL -25 DEL CARRITOO
 ARREGLAR CARRUSEL*/
