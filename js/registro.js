@@ -1,4 +1,3 @@
-// registro.js
 document.addEventListener("DOMContentLoaded", () => {
     const regionSelect = document.getElementById("region");
     const comunaSelect = document.getElementById("comuna");
