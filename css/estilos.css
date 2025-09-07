@@ -107,3 +107,35 @@ footer {
     background-color: #ffd8e7 !important;
     color: #333;
 }
+/* ====== ADMIN PANEL ====== */
+
+/* Sidebar cards */
+.card-stat {
+  border-left: 5px solid #198754;
+  transition: transform 0.2s ease-in-out;
+}
+.card-stat:hover {
+  transform: scale(1.05);
+}
+
+/* Navbar admin */
+.navbar-brand img {
+  height: 100px;
+}
+
+/* Offcanvas admin */
+.offcanvas {
+  width: 250px;
+}
+.offcanvas .nav-link {
+  font-weight: 500;
+  padding: 8px 0;
+}
+.offcanvas .nav-link:hover {
+  color: #198754;
+}
+
+/* Tabla usuarios */
+.table thead {
+  font-weight: bold;
+}

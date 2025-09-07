@@ -3,80 +3,133 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin - Gestión de Productos</title>
+  <title>Panel Administrador - Tienda</title>
+
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- CSS personalizado -->
   <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-<div class="container mt-4">
-  <h2 class="text-center mb-4">Panel de Administración - Productos</h2>
 
-  <!-- Formulario para agregar productos -->
-  <div class="card mb-4">
-    <div class="card-body">
-      <h5 class="card-title">Agregar Producto</h5>
-      <form id="formAgregarProducto" class="row g-3">
-        <div class="col-md-4">
-          <input type="text" class="form-control" id="nombreProducto" placeholder="Nombre" required>
-        </div>
-        <div class="col-md-2">
-          <input type="number" class="form-control" id="precioProducto" placeholder="Precio" required>
-        </div>
-        <div class="col-md-3">
-          <input type="text" class="form-control" id="categoriaProducto" placeholder="Categoría" required>
-        </div>
-        <div class="col-md-3">
-          <input type="text" class="form-control" id="imagenProducto" placeholder="URL Imagen">
-        </div>
-        <div class="col-12 text-center">
-          <button type="submit" class="btn btn-success">Agregar Producto</button>
-        </div>
-      </form>
-    </div>
+<!-- NAVBAR -->
+<nav class="navbar navbar-light bg-light shadow-sm py-2">
+  <div class="container-fluid d-flex align-items-center">
+
+    <!-- Logo -->
+    <a class="navbar-brand d-flex align-items-center me-3" href="#">
+      <img src="img/logo.png" alt="Logo Tienda">
+    </a>
+
+    <!-- Botón hamburguesa -->
+    <button class="btn btn-outline-secondary me-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral">
+      <i class="bi bi-list fs-3"></i>
+    </button>
+
+    <!-- Título admin -->
+    <h5 class="mb-0 text-success fw-bold">Panel Administrador</h5>
+
+    <!-- Botón cerrar sesión -->
+    <button class="btn btn-danger ms-auto" id="cerrarSesion">
+      <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+    </button>
   </div>
+</nav>
 
-  <!-- Contenedor de productos -->
-  <div id="productosContainer" class="row g-3"></div>
+<!-- Franja verde informativa -->
+<div class="bg-success text-white text-center py-2">
+  <strong>Gestión de Usuarios, Productos, Pedidos y Reportes</strong>
 </div>
 
-<!-- Modal para editar producto -->
-<div class="modal fade" id="modalEditarProducto" tabindex="-1" aria-labelledby="modalEditarLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <form id="formEditarProducto">
-        <div class="modal-header">
-          <h5 class="modal-title" id="modalEditarLabel">Editar Producto</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-        </div>
-        <div class="modal-body">
-          <input type="hidden" id="idEditarProducto">
-          <div class="mb-3">
-            <label for="nombreEditar" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="nombreEditar" required>
-          </div>
-          <div class="mb-3">
-            <label for="precioEditar" class="form-label">Precio</label>
-            <input type="number" class="form-control" id="precioEditar" required>
-          </div>
-          <div class="mb-3">
-            <label for="categoriaEditar" class="form-label">Categoría</label>
-            <input type="text" class="form-control" id="categoriaEditar" required>
-          </div>
-          <div class="mb-3">
-            <label for="imagenEditar" class="form-label">URL Imagen</label>
-            <input type="text" class="form-control" id="imagenEditar">
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-          <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-        </div>
-      </form>
-    </div>
+<!-- MENU LATERAL (Offcanvas) -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="menuLateral">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">Menú Administrador</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="list-unstyled">
+      <li><a href="#" class="nav-link"><i class="bi bi-people"></i> Usuarios</a></li>
+      <li><a href="#" class="nav-link"><i class="bi bi-bag"></i> Productos</a></li>
+      <li><a href="#" class="nav-link"><i class="bi bi-cart-check"></i> Pedidos</a></li>
+      <li><a href="#" class="nav-link"><i class="bi bi-bar-chart"></i> Reportes</a></li>
+    </ul>
   </div>
 </div>
 
+<!-- CONTENIDO PRINCIPAL -->
+<div class="container-fluid p-4">
+  <h2 class="mb-4">Dashboard</h2>
+
+  <!-- Tarjetas estadísticas -->
+  <div class="row g-3">
+    <div class="col-md-3">
+      <div class="card card-stat text-center">
+        <div class="card-body">
+          <i class="bi bi-people fs-1 text-success"></i>
+          <h5>Usuarios</h5>
+          <p id="totalUsuarios">120</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card card-stat text-center">
+        <div class="card-body">
+          <i class="bi bi-bag fs-1 text-success"></i>
+          <h5>Productos</h5>
+          <p id="totalProductos">85</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card card-stat text-center">
+        <div class="card-body">
+          <i class="bi bi-cart-check fs-1 text-success"></i>
+          <h5>Pedidos</h5>
+          <p id="totalPedidos">45</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card card-stat text-center">
+        <div class="card-body">
+          <i class="bi bi-cash-coin fs-1 text-success"></i>
+          <h5>Ventas</h5>
+          <p id="totalVentas">$1.250.000</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tabla de usuarios -->
+  <div class="mt-5">
+    <h4>Últimos Usuarios Registrados</h4>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead class="table-success">
+          <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Fecha Registro</th>
+          </tr>
+        </thead>
+        <tbody id="tablaUsuarios">
+          <tr><td>1</td><td>Juan Pérez</td><td>juan@mail.com</td><td>2024-05-01</td></tr>
+          <tr><td>2</td><td>María López</td><td>maria@mail.com</td><td>2024-05-02</td></tr>
+          <tr><td>3</td><td>Carlos Díaz</td><td>carlos@mail.com</td><td>2024-05-03</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- JS personalizado -->
 <script src="js/admin.js"></script>
 </body>
 </html>
