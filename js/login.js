@@ -8,6 +8,17 @@ const mensajeLogin = document.getElementById('mensajeLogin');
 formLogin.addEventListener('submit', function(e) {
     e.preventDefault();
 
+    // 🔹 Limpiar mensajes previos
+    mensajeLogin.textContent = "";
+    mensajeLogin.classList.remove('text-danger', 'text-success');
+
+    // Validar campos vacíos
+    if (correoLogin.value.trim() === "" || passLogin.value.trim() === "") {
+        mensajeLogin.textContent = "Debes completar todos los campos ❌";
+        mensajeLogin.classList.add('text-danger');
+        return;
+    }
+
     // Obtener datos guardados en localStorage
     const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
 
@@ -26,10 +37,9 @@ formLogin.addEventListener('submit', function(e) {
         return;
     }
 
-    // Usuario correcto
+    // ✅ Usuario correcto
     localStorage.setItem('usuarioLogueado', JSON.stringify(usuario)); // guardar sesión
     mensajeLogin.textContent = `¡Bienvenid@, ${usuario.nombre}! ✅`;
-    mensajeLogin.classList.remove('text-danger');
     mensajeLogin.classList.add('text-success');
 
     // Redirigir a index
