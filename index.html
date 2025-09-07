@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="img/logo3.png" type="image/png">
   <title>Tienda de Ropa</title>
 
   <!-- Bootstrap CSS -->
@@ -25,7 +26,7 @@
     </a>
 
     <!-- Botón hamburguesa (menú lateral) -->
-    <button class="btn btn-outline-secondary me-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral">
+    <button class="btn btn-hamburguesa me-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral">
       <i class="bi bi-list fs-3"></i>
     </button>
 
@@ -68,7 +69,7 @@
 
 <!-- Franja informativa -->
 <div class="bg-success text-white text-center py-2">
-  <strong>¡Envíos gratis por compras sobre $35.000!</strong>
+  <strong>¡Envíos gratis por compras sobre $20.000!</strong>
 </div>
 
 <!-- MENU LATERAL (Offcanvas) -->
@@ -196,10 +197,32 @@
     </div>
   </div>
 </div>
+<!-- Carrito desplegable -->
+<div id="carritoLateral" class="carrito-lateral">
+  <div class="carrito-header">
+    <h5>Mi Carrito</h5>
+    <button id="cerrarCarrito" class="btn-cerrar">&times;</button>
+  </div>
+  <div class="carrito-body">
+    <ul id="listaCarrito" class="list-unstyled">
+      <!-- Productos se añadirán aquí dinámicamente -->
+    </ul>
+    <div class="total text-end mt-3">
+      <strong>Total: $<span id="totalCarrito">0</span></strong>
+    </div>
+  </div>
+  <div class="carrito-footer d-flex justify-content-between mt-3">
+    <button id="volver" class="btn btn-secondary">Volver</button>
+    <button id="continuar" class="btn btn-primary">Continuar</button>
+  </div>
+</div>
+
+<!-- Fondo semitransparente -->
+<div id="fondoCarrito" class="fondo-carrito"></div>
 
 <!-- Footer -->
 <footer class="bg-light text-center p-3 mt-4">
-  <p>&copy; 2024 Tienda de Ropa - Proyecto Fullstack</p>
+  <p>&copy; 2025 Tienda de Ropa - Proyecto Fullstack</p>
 </footer>
 
 <!-- Bootstrap JS -->
