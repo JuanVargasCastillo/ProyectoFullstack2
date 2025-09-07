@@ -1,8 +1,13 @@
 /* Navbar */
 .navbar {
-    background-color: #ffffff;
+    background-color: #ffffff !important;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
+
+body {
+    background-color: #ffffff !important;
+}
+
 .navbar-brand img {
     max-height: 100px;
     width: auto;
@@ -51,6 +56,7 @@
 .bg-success strong {
     color: #ffffff;
 }
+
 
 /* Offcanvas menú lateral */
 .offcanvas-body a.nav-link {
@@ -101,9 +107,167 @@
     border-color: #82aa31;
     color: #fff;
 }
+/* Carrito lateral */
+.carrito-lateral {
+    position: fixed;
+    top: 0;
+    right: -400px; /* oculto por defecto */
+    width: 400px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: -3px 0 8px rgba(0,0,0,0.3);
+    z-index: 1050;
+    transition: right 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.carrito-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.carrito-body {
+    flex: 1;
+    overflow-y: auto;
+    margin-top: 10px;
+}
+
+.carrito-footer {
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+}
+
+.btn-cerrar {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Fondo semitransparente */
+.fondo-carrito {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 179, 211, 0.411);
+    z-index: 1040;
+    display: none; /* oculto por defecto */
+}
+
+/* Color por defecto del botón */
+.btn-hamburguesa {
+    border-color: #82aa31;  /* borde verde */
+    color: #82aa31;         /* icono verde */
+    background-color: transparent; /* fondo transparente */
+    transition: all 0.3s ease;
+}
+
+/* Al pasar el mouse */
+.btn-hamburguesa:hover {
+    background-color: #82aa31; /* fondo verde */
+    color: white;               /* icono blanco */
+    border-color: #82aa31;      /* mantiene el borde verde */
+}
 
 /* Footer */
 footer {
     background-color: #ffd8e7 !important;
     color: #333;
 }
+
+
+
+
+.card-producto {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    background: white;
+}
+.card-producto img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin-right: 15px;
+}
+.resumen-compra {
+    border: 2px solid #82aa31;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #fff;
+}
+.resumen-compra h5 {
+    background: #bfd64f;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* Ir a pagar */
+.btn-pagar {
+    width: 100%;
+    background: #bfd64f;  
+    color: white;
+    font-weight: bold;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+.btn-pagar:hover {
+    background: #ffacc7;   
+    color: white;
+}
+
+/* Seguir comprando */
+.btn-seguir {
+    width: 100%;
+    margin-top: 10px;
+    color: #82aa31;
+    background: none;
+    border: none;
+    font-weight: bold;
+    transition: text-decoration 0.2s ease;
+}
+.btn-seguir:hover {
+    text-decoration: underline; 
+    font-weight: bold; 
+}
+.btn-seguir:hover {
+    text-decoration: underline; 
+    color: #82aa31;             
+    font-weight: bold;
+}
+
+/* Botón cupón */
+#btnCupon {
+    background-color: #bfd64f; 
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+
+
+
+
+ 
+
+
+/* 
+TAMBIEN CAMBIAR COLOR DE BASURERO, CERRAR SESION, BOTON VOLVER
+CAMBIAR INICIAR SESION Y CREAR CUENTA
+VER FAVORITOS, BOTON HAMBURGUESA FUNCIONABLE. CAMBIAR TODO ROJO ASQUEROSO Y AMARILLO 
+ASQUEOROSO NUNCA EN MI VIDA ME GUSTÓ EL AMARILLO
+AGREGAR PIE
+ARREGLAR EL -25 DEL CARRITOO
+ARREGLAR CARRUSEL*/
