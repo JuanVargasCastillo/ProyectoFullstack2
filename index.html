@@ -151,53 +151,11 @@
 <!-- Productos destacados -->
 <div class="container">
   <h2 class="titulo">Productos Destacados</h2>
-  <div class="row">
-    <div class="col-md-3 caja">
-      <div class="card h-100">
-        <img src="img/camisa.webp" class="card-img-top" alt="Camisa">
-        <div class="card-body text-center">
-          <h5 class="card-title">Camisa Casual</h5>
-          <p class="card-text">$25.990</p>
-          <button class="btn btn-primary add-cart">Agregar</button>
-          <button class="btn btn-outline-danger add-fav"><i class="bi bi-heart"></i></button>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3 caja">
-      <div class="card h-100">
-        <img src="img/chaqueta.webp" class="card-img-top" alt="Chaqueta">
-        <div class="card-body text-center">
-          <h5 class="card-title">Chaqueta</h5>
-          <p class="card-text">$49.990</p>
-          <button class="btn btn-primary add-cart">Agregar</button>
-          <button class="btn btn-outline-danger add-fav"><i class="bi bi-heart"></i></button>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3 caja">
-      <div class="card h-100">
-        <img src="img/pantalon.webp" class="card-img-top" alt="Pantalón">
-        <div class="card-body text-center">
-          <h5 class="card-title">Pantalón</h5>
-          <p class="card-text">$19.990</p>
-          <button class="btn btn-primary add-cart">Agregar</button>
-          <button class="btn btn-outline-danger add-fav"><i class="bi bi-heart"></i></button>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3 caja">
-      <div class="card h-100">
-        <img src="img/zapato.webp" class="card-img-top" alt="Zapatos">
-        <div class="card-body text-center">
-          <h5 class="card-title">Zapatos</h5>
-          <p class="card-text">$29.990</p>
-          <button class="btn btn-primary add-cart">Agregar</button>
-          <button class="btn btn-outline-danger add-fav"><i class="bi bi-heart"></i></button>
-        </div>
-      </div>
-    </div>
+  <div class="row" id="contenedor-productos">
+    <!-- Los productos se insertan dinámicamente desde metodos.js -->
   </div>
 </div>
+
 <!-- Carrito desplegable -->
 <div id="carritoLateral" class="carrito-lateral">
   <div class="carrito-header">
@@ -268,4 +226,3 @@
     </div>
   </div>
 </footer>
-
