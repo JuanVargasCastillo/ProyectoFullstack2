@@ -583,3 +583,8 @@ body {
 .btn-notificacion .badge {
   font-size: 0.6rem;
 }
+
+#producto-precio {
+  color: #82aa31!important;
+}
+
