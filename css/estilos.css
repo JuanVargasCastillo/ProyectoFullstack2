@@ -422,15 +422,19 @@ body {
   color: white;
 }
 
-/* --- Icono Carrito y Favoritos Rosado --- */
-#carrito i, #favoritos i {
-  color: #f8a9c4;        /* Rosa clarito */
-  transition: color 0.3s; /* Suaviza el cambio al pasar el mouse */
+/* Iconos favoritos y carrito rosados - fuerza el color */
+.navbar .nav-link#carrito i.bi-cart3,
+.navbar .nav-link#favoritos i.bi-heart {
+    color: #f8a9c4 !important;  /* Rosa clarito */
+    transition: color 0.3s;
 }
 
-#carrito:hover i, #favoritos:hover i {
-  color: #ff5c8d;        /* Rosa más intenso al pasar el mouse */
+.navbar .nav-link#carrito:hover i.bi-cart3,
+.navbar .nav-link#favoritos:hover i.bi-heart {
+    color: #ff5c8d !important;  /* Rosa más intenso al pasar el mouse */
 }
+
+
 
 .add-fav {
   background: none !important;
@@ -491,9 +495,6 @@ body {
   color: #fff; /* texto en blanco */
   border: 1px solid #fff; /* opcional, para destacarlo */
 }
-
-
-
 
 
 

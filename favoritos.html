@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="img/logo3.png" type="image/png">
 <title>Mis Favoritos - GBunny Store</title>
 
 <!-- Bootstrap CSS -->
@@ -13,6 +14,7 @@
 <style>
 body { background-color: #fff5f9; }
 
+/* Productos favoritos */
 .producto-fav {
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -22,10 +24,22 @@ body { background-color: #fff5f9; }
     transition: transform 0.2s;
 }
 .producto-fav:hover { transform: scale(1.02); }
-.producto-fav img { width: 100%; max-width: 200px; }
+.producto-fav img { width: 100%; max-width: 250px; height: auto; }
 .btn-quitar { background-color: #f8a9c4; color: #fff; border: none; transition: 0.3s; }
 .btn-quitar:hover { background-color: #f47ba0; }
 .titulo-fav { color:#f8a9c4; text-align:center; margin-bottom:25px; font-weight:bold; font-size:1.8rem; }
+
+/* Navbar: íconos rosados */
+#carrito i, #favoritos i { color: #f8a9c4; transition: color 0.3s; }
+#carrito:hover i, #favoritos:hover i { color: #ff5c8d; }
+.badge { background-color: #f47ba0 !important; color: #fff !important; }
+
+/* Footer rosadito */
+footer { background-color: #fff1f6; color: #f47ba0; padding: 40px 0; }
+.footer-link { color: #f47ba0; text-decoration: none; }
+.footer-link:hover { text-decoration: underline; }
+.footer-social { color: #f47ba0; font-size: 1.2rem; }
+.footer-copy { color: #f47ba0; }
 </style>
 </head>
 <body>
@@ -33,9 +47,8 @@ body { background-color: #fff5f9; }
 <!-- NAVBAR -->
 <nav class="navbar navbar-light bg-light shadow-sm py-2">
   <div class="container-fluid d-flex align-items-center">
-
     <a class="navbar-brand d-flex align-items-center me-3" href="index.html">
-      <img src="img/logo.png" alt="Logo Tienda">
+      <img src="img/logo.png" alt="Logo Tienda" style="height:100px;">
     </a>
 
     <button class="btn btn-hamburguesa me-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral">
@@ -49,15 +62,15 @@ body { background-color: #fff5f9; }
 
     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center flex-row">
       <li class="nav-item me-3">
-        <a class="nav-link position-relative" href="favoritos.html">
+        <a class="nav-link position-relative" href="favoritos.html" id="favoritos">
           <i class="bi bi-heart fs-4"></i>
-          <span class="badge bg-danger position-absolute top-0 start-100 translate-middle p-1 rounded-circle" id="fav-count">0</span>
+          <span class="badge position-absolute top-0 start-100 translate-middle p-1 rounded-circle" id="fav-count">0</span>
         </a>
       </li>
       <li class="nav-item me-3">
-        <a class="nav-link position-relative" href="#">
+        <a class="nav-link position-relative" href="carrito.html" id="carrito">
           <i class="bi bi-cart3 fs-4"></i>
-          <span class="badge bg-danger position-absolute top-0 start-100 translate-middle p-1 rounded-circle" id="cart-count">0</span>
+          <span class="badge position-absolute top-0 start-100 translate-middle p-1 rounded-circle" id="cart-count">0</span>
         </a>
       </li>
       <li class="nav-item me-2">
@@ -67,7 +80,7 @@ body { background-color: #fff5f9; }
         <a class="btn btn-success" href="registro.html">Registrarse</a>
       </li>
     </ul>
-  </div> 
+  </div>
 </nav>
 
 <!-- Offcanvas lateral -->
@@ -167,6 +180,7 @@ body { background-color: #fff5f9; }
 <!-- JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
+// Mostrar productos favoritos
 const listaFav = document.getElementById('listaFavoritos');
 
 function mostrarFavoritos(){
@@ -195,15 +209,29 @@ function mostrarFavoritos(){
     botonesQuitar.forEach(btn => {
         btn.addEventListener('click', () => {
             const i = btn.getAttribute('data-index');
+            let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
             favoritos.splice(i, 1);
             localStorage.setItem('favoritos', JSON.stringify(favoritos));
             mostrarFavoritos();
+            actualizarContadores();
         });
     });
 }
 
-// Mostrar favoritos al cargar
+// Actualizar contadores de favoritos y carrito
+function actualizarContadores() {
+    const favCount = document.getElementById('fav-count');
+    const cartCount = document.getElementById('cart-count');
+
+    let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+    favCount.textContent = favoritos.length;
+    cartCount.textContent = carrito.length;
+}
+
 mostrarFavoritos();
+actualizarContadores();
 </script>
 </body>
 </html>
