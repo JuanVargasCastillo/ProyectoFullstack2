@@ -44,9 +44,9 @@ function render(){
         <span class="precio">$${formatearPrecio(p.precio)} c/u</span>
       </div>
       <div class="d-flex align-items-center ms-auto">
-        <button class="btn btn-outline-secondary btn-sm me-1" data-accion="menos" data-i="${i}">-</button>
+        <button class="btn btn-cantidad btn-sm me-1" data-accion="menos" data-i="${i}">-</button>
         <span class="px-2">${p.cantidad}</span>
-        <button class="btn btn-outline-secondary btn-sm ms-1 me-3" data-accion="mas" data-i="${i}">+</button>
+        <button class="btn btn-cantidad btn-sm ms-1 me-3" data-accion="mas" data-i="${i}">+</button>
         <span class="precio fw-bold me-3">$${formatearPrecio(p.precio * p.cantidad)}</span>
         <button class="btn btn-sm me-0 p-0 btn-trash" data-accion="eliminar" data-i="${i}">
           <i class="bi bi-trash fs-5"></i>
