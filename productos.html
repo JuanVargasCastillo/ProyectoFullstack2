@@ -3,14 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Panel Administrador - Inicio</title>
+  <title>Panel Administrador - Productos</title>
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-
-  <!-- CSS personalizado -->
   <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
@@ -50,8 +47,8 @@
 </nav>
 
 <!-- Franja verde -->
-<div class="bg-success text-white text-center py-3">
-  <h4>Bienvenido, Administrador</h4>
+<div class="bg-success text-white text-center py-2">
+  <strong>Bienvenido Administrador</strong>
 </div>
 
 <!-- Offcanvas -->
@@ -62,8 +59,8 @@
   </div>
   <div class="offcanvas-body d-flex flex-column justify-content-between">
     <ul class="list-unstyled">
-      <li><a href="#" class="nav-link active" onclick="mostrarSeccion('inicio')"><i class="bi bi-house-door"></i> Inicio</a></li>
-      <li><a href="productos.html" class="nav-link"><i class="bi bi-bag"></i> Productos</a></li>
+      <li><a href="admin.html" class="nav-link"><i class="bi bi-speedometer2"></i> Inicio</a></li>
+      <li><a href="productos.html" class="nav-link" data-categoria="all"><i class="bi bi-bag"></i> Productos</a></li>
 
       <!-- Categorías con collapse -->
       <li>
@@ -72,7 +69,6 @@
           <span>Categorías</span>
           <i class="bi bi-chevron-down"></i>
         </a>
-        
         <div class="collapse" id="collapseCategorias">
           <ul class="list-unstyled ps-3">
             <li><a href="productos.html#Hombre" class="nav-link">Hombre</a></li>
@@ -87,29 +83,76 @@
     <ul class="list-unstyled mt-auto">
       <li><a href="#" class="nav-link"><i class="bi bi-gear"></i> Configuración</a></li>
       <li><a href="#" class="nav-link"><i class="bi bi-question-circle"></i> Ayuda</a></li>
-      <li><a href="#" class="nav-link"><i class="bi bi-person-circle"></i> Profile</a></li>
+      <li><a href="#" class="nav-link"><i class="bi bi-person"></i> Profile</a></li>
     </ul>
   </div>
 </div>
 
 <!-- Contenido principal -->
 <div class="container-fluid p-4">
-  <div id="contenidoPrincipal">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Gestión de Productos</h2>
+    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalProducto">
+      <i class="bi bi-plus-circle"></i> Agregar Producto
+    </button>
+  </div>
 
-    <!-- Sección Inicio -->
-    <div id="seccionInicio" class="text-center">
-      <img src="img/logo.png" alt="Logo Tienda" class="mb-4" style="max-width:200px;">
-      <h2>Bienvenido al Panel de Administración</h2>
-      <p>Desde aquí puedes gestionar tus productos y revisar tus categorías.</p>
-      <a href="productos.html" class="btn btn-success mt-3"><i class="bi bi-bag"></i> Ir a Productos</a>
+  <!-- Grid de productos -->
+  <div id="tablaProductos" class="row"></div>
+</div>
+
+<!-- Modal agregar/editar -->
+<div class="modal fade" id="modalProducto" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <form id="formProducto">
+        <div class="modal-header bg-success text-white">
+          <h5 class="modal-title">Producto</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body row g-3">
+          <input type="hidden" id="productoId">
+          <div class="col-md-6">
+            <label class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Precio</label>
+            <input type="number" class="form-control" id="precio" required>
+          </div>
+          <div class="col-12">
+            <label class="form-label">Descripción</label>
+            <textarea class="form-control" id="descripcion" required></textarea>
+          </div>
+          <div class="col-12">
+            <label class="form-label">Imagen (URL)</label>
+            <input type="text" class="form-control" id="imagen" required>
+          </div>
+          <div class="col-12">
+            <label class="form-label">Categoría</label>
+            <select class="form-select" id="categoria" required>
+              <option value="Hombre">Hombre</option>
+              <option value="Mujer">Mujer</option>
+              <option value="Niños">Niños</option>
+              <option value="Accesorios">Accesorios</option>
+            </select>
+          </div>
+          <div class="col-12">
+            <label class="form-label">Stock</label>
+            <input type="number" class="form-control" id="stock" min="0" value="1">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-success">Guardar</button>
+        </div>
+      </form>
     </div>
-
   </div>
 </div>
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<!-- JS personalizado -->
-<script src="js/admin.js"></script>
+<script src="js/productos.js"></script>
 </body>
 </html>

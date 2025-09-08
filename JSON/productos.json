@@ -1,116 +1,148 @@
 {
   "productos": [
     {
-      "id": 1,
       "nombre": "Polera gris nike",
       "precio": 7000,
       "descripcion": "Polera 100% algodón, talla M",
-      "imagen": "img/pantalon.webp"
+      "imagen": "img/p1.png",
+      "id": "1",
+      "categoria": "Hombre",
+      "stock": 1
     },
     {
-      "id": 2,
       "nombre": "Top negra con flores",
       "precio": 5000,
       "descripcion": "Top color negra con flores pequeñas, talla S",
-      "imagen": "img/pantalon.webp"
+      "imagen": "img/p2.png",
+      "id": "2",
+      "categoria": "Mujer",
+      "stock": 1
     },
     {
-      "id": 3,
       "nombre": "Jardinera de jeans",
       "precio": 10000,
-      "descripcion": "Jardinera estilo de bluejeans, talla 38",
-      "imagen": "img/pantalon.webp"
+      "descripcion": "Jardinera estilo de bluejeans, talla 39",
+      "imagen": "img/p3.png",
+      "id": "3",
+      "categoria": "Mujer",
+      "stock": 1
     },
     {
-      "id": 4,
       "nombre": "Vestido de niña con conejos",
       "precio": 8000,
       "descripcion": "Vestido de niña con diseño de conejos, talla 4 ",
-      "imagen": "img/pantalon.webp"
+      "imagen": "img/p4.png",
+      "categoria": "Niños",
+      "stock": 1,
+      "id": "4"
     },
     {
-      "id": 5,
       "nombre": "Vestido con flores ",
       "precio": 8000,
       "descripcion": "Vestido con flores tipo hawaiana, talla S",
-      "imagen": "img/pantalon.webp"
+      "imagen": "img/p5.png",
+      "id": "5",
+      "categoria": "Mujer",
+      "stock": 1
     },
     {
-      "id": 6,
       "nombre": "Corta vientos mujer Columbia",
       "precio": 12000,
       "descripcion": "Cortavientos marca columbia color gris con celeste, talla M ",
-      "imagen": "img/pantalon.webp"
+      "imagen": "img/p6.png",
+      "id": "6",
+      "categoria": "Mujer",
+      "stock": 1
     },
     {
-      "id": 7,
       "nombre": "Abrigo invierno",
       "precio": 20000,
       "descripcion": "Abrigo de invierno marca Ferouch, talla L",
-      "imagen": "img/pantalon.webp"
+      "imagen": "img/p7.png",
+      "id": "7",
+      "categoria": "Hombre",
+      "stock": 1
     },
     {
-      "id": 8,
       "nombre": "Poleron con cuello",
       "precio": 13000,
       "descripcion": "Poleron celeste con negro y cuello blanco marca NGX, talla M",
-      "imagen": "img/pantalon.webp"
+      "imagen": "img/p8.png",
+      "id": "8",
+      "categoria": "Hombre",
+      "stock": 1
     },
     {
-      "id": 9,
       "nombre": "Vestido blanco de niña",
       "precio": 5000,
       "descripcion": "Vestido de niña color blanco crema, talla 8",
-      "imagen": "img/pantalon.webp"
+      "imagen": "img/p9.png",
+      "id": "9",
+      "categoria": "Niños",
+      "stock": 1
     },
     {
-      "id": 10,
       "nombre": "Camisa cuadros blanco y negro",
       "precio": 10000,
       "descripcion": "Camisa con cuadros pequeños color blanco y negro, talla L",
-      "imagen": "img/pantalon.webp"
+      "imagen": "img/p10.png",
+      "id": "10",
+      "categoria": "Hombre",
+      "stock": 1
     },
     {
-      "id": 11,
       "nombre": "Polera roja manga larga",
       "precio": 7000,
       "descripcion": "Polera roja manga larga con estampado de tigre, talla S",
-      "imagen": "img/pantalon.webp"
+      "imagen": "img/p11.png",
+      "id": "11",
+      "categoria": "Mujer",
+      "stock": 1
     },
     {
-      "id": 12,
       "nombre": "Camisa floreada corta de mujer",
       "precio": 7000,
       "descripcion": "Camisa corta con flores marca Concepts, talla S",
-      "imagen": "img/pantalon.webp"
+      "imagen": "img/p12.png",
+      "id": "12",
+      "categoria": "Mujer",
+      "stock": 1
     },
-        {
-      "id": 13,
+    {
       "nombre": "Pendiente de argolla ",
-      "precio": 7000,
+      "precio": 2400,
       "descripcion": "Pendientes grandes de argolla",
-      "imagen": "img/pantalon.webp"
+      "imagen": "img/p13.png",
+      "id": "13",
+      "categoria": "Accesorios",
+      "stock": 5
     },
-        {
-      "id": 14,
+    {
       "nombre": "Pendientes de mariposa",
-      "precio": 7000,
+      "precio": 2500,
       "descripcion": "Pendientes grandes de mariposa plateados ",
-      "imagen": "img/pantalon.webp"
+      "imagen": "img/p14.png",
+      "id": "14",
+      "categoria": "Accesorios",
+      "stock": 5
     },
-        {
-      "id": 15,
+    {
       "nombre": "Pendientes de limón",
-      "precio": 7000,
+      "precio": 2500,
       "descripcion": "Pendientes de limón color amarillo",
-      "imagen": "img/pantalon.webp"
+      "imagen": "img/p15.png",
+      "id": "15",
+      "categoria": "Accesorios",
+      "stock": 5
     },
-        {
-      "id": 16,
+    {
       "nombre": "Pendientes de lima limón",
-      "precio": 7000,
-      "descripcion": "Pendientes de lima limón color blanco con verde lima",
-      "imagen": "img/pantalon.webp"
-    } 
+      "precio": 2500,
+      "descripcion": "Pendientes de lima limón color blanco con verde lima ",
+      "imagen": "img/p16.png",
+      "id": "16",
+      "categoria": "Accesorios",
+      "stock": 5
+    }
   ]
 }
