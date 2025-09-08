@@ -41,11 +41,12 @@
 
       <!-- Favoritos -->
       <li class="nav-item me-3">
-        <a class="nav-link position-relative" href="#" id="favoritos">
+        <a class="nav-link position-relative" href="favoritos.html" id="favoritos">
           <i class="bi bi-heart fs-4"></i>
           <span class="badge bg-danger position-absolute top-0 start-100 translate-middle p-1 rounded-circle" id="fav-count">0</span>
         </a>
       </li>
+
 
       <!-- Carrito -->
       <li class="nav-item me-3">
@@ -64,7 +65,7 @@
       </li>
 
     </ul>
-  </div>
+  </div> 
 </nav>
 
 <!-- Franja informativa -->
@@ -157,7 +158,7 @@
         <div class="card-body text-center">
           <h5 class="card-title">Camisa Casual</h5>
           <p class="card-text">$25.990</p>
-          <button class="btn btn-primary add-cart">Comprar</button>
+          <button class="btn btn-primary add-cart">Agregar</button>
           <button class="btn btn-outline-danger add-fav"><i class="bi bi-heart"></i></button>
         </div>
       </div>
@@ -168,7 +169,7 @@
         <div class="card-body text-center">
           <h5 class="card-title">Chaqueta</h5>
           <p class="card-text">$49.990</p>
-          <button class="btn btn-primary add-cart">Comprar</button>
+          <button class="btn btn-primary add-cart">Agregar</button>
           <button class="btn btn-outline-danger add-fav"><i class="bi bi-heart"></i></button>
         </div>
       </div>
@@ -179,7 +180,7 @@
         <div class="card-body text-center">
           <h5 class="card-title">Pantalón</h5>
           <p class="card-text">$19.990</p>
-          <button class="btn btn-primary add-cart">Comprar</button>
+          <button class="btn btn-primary add-cart">Agregar</button>
           <button class="btn btn-outline-danger add-fav"><i class="bi bi-heart"></i></button>
         </div>
       </div>
@@ -190,7 +191,7 @@
         <div class="card-body text-center">
           <h5 class="card-title">Zapatos</h5>
           <p class="card-text">$29.990</p>
-          <button class="btn btn-primary add-cart">Comprar</button>
+          <button class="btn btn-primary add-cart">Agregar</button>
           <button class="btn btn-outline-danger add-fav"><i class="bi bi-heart"></i></button>
         </div>
       </div>
@@ -212,7 +213,7 @@
     </div>
   </div>
   <div class="carrito-footer d-flex justify-content-between mt-3">
-    <button id="volver" class="btn btn-secondary">Volver</button>
+    <button id="volver" class="btn btn-volver">Volver</button>
     <button id="continuar" class="btn btn-primary">Continuar</button>
   </div>
 </div>
@@ -220,14 +221,51 @@
 <!-- Fondo semitransparente -->
 <div id="fondoCarrito" class="fondo-carrito"></div>
 
-<!-- Footer -->
-<footer class="bg-light text-center p-3 mt-4">
-  <p>&copy; 2025 Tienda de Ropa - Proyecto Fullstack</p>
-</footer>
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Tu JS personalizado -->
 <script src="js/metodos.js"></script>
+<script src="js/favoritos.js"></script>
 </body>
 </html>
+
+<footer class="footer bg-footer pt-4 mt-5">
+  <div class="container">
+    <div class="row">
+
+      <!-- Contacto -->
+      <div class="col-md-4 mb-3">
+        <h5 class="footer-title">Contacto</h5>
+        <p>Email: <a href="mailto:contacto.GBunnyStore@tienda.com" class="footer-link">GBunnyStore@tienda.com</a></p>
+        <p>Tel: +56 9 1234 5678</p>
+        <p>Dirección: Av. Principal 123, Santiago</p>
+      </div>
+
+      <!-- Enlaces -->
+      <div class="col-md-4 mb-3">
+        <h5 class="footer-title">Enlaces</h5>
+        <ul class="list-unstyled">
+          <li><a href="nosotros.html" target="_blank" class="footer-link">Nosotros</a></li>
+          <li><a href="blog.html" target="_blank" class="footer-link">Blog</a></li>
+          <li><a href="contacto.html" target="_blank" class="footer-link">Contáctanos</a></li>
+        </ul>
+      </div>
+
+      <!-- Redes Sociales -->
+      <div class="col-md-4 mb-3">
+        <h5 class="footer-title">Síguenos</h5>
+        <a href="#" class="footer-social me-2"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="footer-social me-2"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="footer-social me-2"><i class="bi bi-twitter"></i></a>
+      </div>
+
+    </div>
+
+    <!-- Derechos de autor -->
+    <div class="text-center mt-3">
+      <small class="footer-copy">&copy; 2025 Tienda de Ropa - Todos los derechos reservados</small>
+    </div>
+  </div>
+</footer>
+

@@ -41,7 +41,6 @@ function cerrarCarrito() {
 
 // Continuar a carrito completo
 btnContinuar.addEventListener('click', () => {
-  // Persistimos por si acaso
   localStorage.setItem('carrito', JSON.stringify(productosCarrito));
   window.location.href = 'carrito.html';
 });
@@ -50,13 +49,11 @@ btnContinuar.addEventListener('click', () => {
 // Botones "Comprar"
 document.querySelectorAll('.add-cart').forEach(btn => {
   btn.addEventListener('click', () => {
-    // Obtener datos del producto
     const card = btn.closest('.card');
     const nombre = card.querySelector('.card-title').innerText;
     const precio = parseInt(card.querySelector('.card-text').innerText.replace(/\D/g, ''));
     const img = card.querySelector('img').src;
 
-    // Si ya existe, solo aumenta cantidad
     const prod = productosCarrito.find(p => p.nombre === nombre);
     if (prod) {
       prod.cantidad++;
@@ -70,16 +67,9 @@ document.querySelectorAll('.add-cart').forEach(btn => {
   });
 });
 
-// Botones "Favorito"
-document.querySelectorAll('.add-fav').forEach(btn => {
-  btn.addEventListener('click', () => {
-    favCount++;
-    document.getElementById('fav-count').textContent = favCount;
-    alert('Producto agregado a favoritos ❤️');
-  });
-});
 
-// --- ACTUALIZAR CARRITO (también persiste en localStorage) ---
+
+// --- ACTUALIZAR CARRITO ---
 function actualizarCarrito() {
   listaCarrito.innerHTML = '';
   let total = 0;
@@ -95,10 +85,10 @@ function actualizarCarrito() {
         $${formatearPrecio(producto.precio)}
       </div>
       <div class="d-flex align-items-center">
-        <button class="btn btn-outline-secondary btn-sm me-1" data-accion="menos" data-index="${index}">-</button>
+        <button class="btn btn-cantidad me-1" data-accion="menos" data-index="${index}">-</button>
         <span class="px-2">${producto.cantidad}</span>
-        <button class="btn btn-outline-secondary btn-sm ms-1" data-accion="mas" data-index="${index}">+</button>
-        <button class="btn btn-outline-danger btn-sm ms-2" data-accion="eliminar" data-index="${index}">
+        <button class="btn btn-cantidad ms-1" data-accion="mas" data-index="${index}">+</button>
+        <button class="btn btn-eliminar ms-2" data-accion="eliminar" data-index="${index}">
           <i class="bi bi-trash"></i>
         </button>
       </div>
@@ -110,7 +100,6 @@ function actualizarCarrito() {
 
   totalCarrito.textContent = `${formatearPrecio(total)}`;
 
-  // Recalcular contador y persistir
   cartCount = productosCarrito.reduce((s, p) => s + p.cantidad, 0);
   document.getElementById('cart-count').textContent = cartCount;
   localStorage.setItem('carrito', JSON.stringify(productosCarrito));
@@ -150,11 +139,9 @@ document.querySelectorAll('a[href="#"]').forEach(link => {
 
 // --- USUARIO LOGUEADO ---
 document.addEventListener("DOMContentLoaded", () => {
-  // Render inicial del carrito lateral si hay productos
   if (productosCarrito.length) actualizarCarrito();
 
   const usuarioLog = JSON.parse(localStorage.getItem('usuarioLogueado'));
-
   const loginBtn = document.querySelector('a.btn-outline-primary');
   const registroBtn = document.querySelector('a.btn-success');
 
@@ -170,12 +157,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const cerrar = document.createElement("li");
     cerrar.classList.add("nav-item");
-    cerrar.innerHTML = `<button class="btn btn-danger" id="cerrarSesion">Cerrar Sesión</button>`;
+    cerrar.innerHTML = `<button class="btn btn-cerrar-sesion" id="cerrarSesion">Cerrar Sesión</button>`;
     navbar.appendChild(cerrar);
+
 
     document.getElementById("cerrarSesion").addEventListener("click", () => {
       localStorage.removeItem("usuarioLogueado");
       location.reload();
     });
   }
+});
+
+// --- EFECTO FAVORITOS (corazón relleno al hover) ---
+document.querySelectorAll('.add-fav').forEach(btn => {
+  const icon = btn.querySelector('i');
+
+  btn.addEventListener('mouseenter', () => {
+    icon.classList.remove('bi-heart');
+    icon.classList.add('bi-heart-fill');
+    icon.style.color = '#ff5c8d';
+  });
+
+  btn.addEventListener('mouseleave', () => {
+    icon.classList.remove('bi-heart-fill');
+    icon.classList.add('bi-heart');
+    icon.style.color = '#f8a9c4';
+  });
 });

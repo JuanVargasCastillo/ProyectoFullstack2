@@ -4,25 +4,133 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="img/logo3.png" type="image/png">
-  <title>Iniciar Sesión</title>
+  <title>Iniciar Sesión - GBunny Store</title>
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-  <!-- Tu CSS -->
   <link rel="stylesheet" href="css/estilos.css">
-</head>
-<body>
 
-<!-- NAVBAR igual que index -->
+  <style>
+    body {
+      background-color: #fff5f9;
+    }
+
+    #formLogin {
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      background-color: #ffffff;
+      transition: all 0.3s ease;
+    }
+
+    #formLogin .form-control {
+      border: 2px solid #dddddd;
+      border-radius: 0.5rem;
+      padding: 0.5rem 0.75rem;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      box-shadow: 0 0 5px rgba(0,0,0,0.05);
+    }
+
+    #formLogin .form-control:focus {
+      border-color: #f8a9c4;
+      outline: none;
+      box-shadow: 
+        0 0 10px rgba(248, 169, 196, 0.6),  
+        0 0 20px rgba(192, 192, 192, 0.3); 
+    }
+
+    #formLogin .btn-entrar {
+      background-color: #f8a9c4;
+      color: #fff;
+      border: none;
+      transition: background-color 0.3s;
+    }
+    #formLogin .btn-entrar:hover {
+      background-color: #f47ba0;
+    }
+
+    #formLogin .btn-limpiar {
+      background-color: transparent;
+      color: #82aa31;
+      border: 1px solid #82aa31;
+      transition: all 0.3s;
+    }
+    #formLogin .btn-limpiar:hover {
+      background-color: #82aa31;
+      color: #fff;
+    }
+
+    .titulo-login {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 1.8rem;
+      color: #f8a9c4;
+      font-weight: bold;
+    }
+
+    .link-recuperar {
+      color: #f8a9c4;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.3s;
+      cursor: pointer;
+    }
+    .link-recuperar:hover {
+      color: #f47ba0;
+      text-decoration: underline;
+    }
+
+    /* Modal botones */
+    .btn-enviar {
+      background-color: #f8a9c4;
+      color: #fff;
+      border: none;
+      transition: background-color 0.3s;
+    }
+    .btn-enviar:hover {
+      background-color: #f47ba0;
+    }
+
+    .btn-cancelar {
+      background-color: transparent;
+      color: #82aa31;
+      border: 1px solid #82aa31;
+      transition: all 0.3s;
+    }
+    .btn-cancelar:hover {
+      background-color: #82aa31;
+      color: #fff;
+    }
+
+    footer {
+      background-color: #fff1f6;
+      color: #333;
+      padding: 30px 0;
+      margin-top: 50px;
+    }
+    footer a {
+      color: #f8a9c4;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  
+
+  </style>
+</head>
+<body> 
+
+<!-- NAVBAR -->
 <nav class="navbar navbar-light bg-light shadow-sm py-2">
   <div class="container-fluid d-flex align-items-center">
     <a class="navbar-brand d-flex align-items-center me-3" href="index.html">
       <img src="img/logo.png" alt="Logo Tienda">
     </a>
     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center flex-row">
-      <li class="nav-item">
-        <a class="btn btn-outline-primary me-2" href="index.html">Volver a la Tienda</a>
+      <li class="nav-item me-2">
+        <a class="btn btn-outline-primary" href="index.html">Volver a la Tienda</a>
       </li>
       <li class="nav-item">
         <a class="btn btn-success" href="registro.html">Registrarse</a>
@@ -31,16 +139,12 @@
   </div>
 </nav>
 
-<!-- Título -->
-<div class="bg-success text-white text-center py-2">
-  <strong>Iniciar Sesión</strong>
-</div>
-
 <!-- Formulario de login -->
-<div class="container mt-4">
+<div class="container mt-5">
   <div class="row justify-content-center">
     <div class="col-md-6">
-      <form id="formLogin" class="p-4 rounded shadow-sm bg-light">
+      <form id="formLogin">
+        <div class="titulo-login">Iniciar Sesión</div>
 
         <div class="mb-3">
           <label for="correoLogin" class="form-label">Correo electrónico:</label>
@@ -52,26 +156,75 @@
           <input type="password" class="form-control" id="passLogin" placeholder="Ingrese contraseña" required>
         </div>
 
+        <!-- Recuperar contraseña -->
+        <div class="mb-3 text-end">
+          <span class="link-recuperar" data-bs-toggle="modal" data-bs-target="#modalRecuperar">¿Olvidaste tu contraseña?</span>
+        </div>
+
         <div id="mensajeLogin" class="mb-3 fw-bold"></div>
 
         <div class="text-center">
-          <input type="submit" value="Entrar" class="btn btn-success me-2">
-          <input type="reset" value="Limpiar" class="btn btn-secondary">
+          <input type="submit" value="Entrar" class="btn btn-entrar me-2">
+          <input type="reset" value="Limpiar" class="btn btn-limpiar">
         </div>
-
       </form>
     </div>
   </div>
 </div>
 
+<!-- Modal Recuperar Contraseña -->
+<div class="modal fade" id="modalRecuperar" tabindex="-1" aria-labelledby="modalRecuperarLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color:#f8a9c4; color:white;">
+        <h5 class="modal-title" id="modalRecuperarLabel">Recuperar Contraseña</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <p>Ingresa tu correo Gmail para recibir un enlace de recuperación:</p>
+        <input type="email" class="form-control mb-2" id="correoRecuperar" placeholder="ejemplo@gmail.com">
+        <div id="mensajeRecuperar" class="fw-bold mt-2"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-cancelar" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-enviar" id="btnEnviarRecuperar">Enviar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Footer -->
-<footer class="bg-light text-center p-3 mt-4">
-  <p>&copy; 2024 Tienda de Ropa - Proyecto Fullstack</p>
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <h5 class="footer-title">Contacto</h5>
+        <p>Email: <a href="mailto:GBunnyStore@tienda.com" class="footer-link">GBunnyStore@tienda.com</a></p>
+        <p>Tel: +56 9 1234 5678</p>
+        <p>Dirección: Av. Principal 123, Santiago</p>
+      </div>
+      <div class="col-md-4 mb-3">
+        <h5 class="footer-title">Enlaces</h5>
+        <ul class="list-unstyled">
+          <li><a href="nosotros.html" class="footer-link">Nosotros</a></li>
+          <li><a href="blogs.html" class="footer-link">Blog</a></li>
+          <li><a href="contacto.html" class="footer-link">Contáctanos</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4 mb-3">
+        <h5 class="footer-title">Síguenos</h5>
+        <a href="#" class="footer-social me-2"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="footer-social me-2"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="footer-social me-2"><i class="bi bi-twitter"></i></a>
+      </div>
+    </div>
+    <div class="text-center mt-3">
+      <small class="footer-copy">&copy; 2025 Tienda de Ropa - Todos los derechos reservados</small>
+    </div>
+  </div>
 </footer>
 
-<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<!-- JS personalizado -->
 <script src="js/login.js"></script>
 </body>
 </html>
