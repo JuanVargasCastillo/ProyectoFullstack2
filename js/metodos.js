@@ -196,10 +196,9 @@ async function cargarProductos() {
       const col = document.createElement("div");
       col.classList.add("col-md-3", "caja");
 
-      // Botón más pequeño y corazón al lado
       col.innerHTML = `
         <div class="card h-100">
-          <img src="${prod.imagen}" class="card-img-top" alt="${prod.nombre}">
+          <img src="${prod.imagen}" class="card-img-top producto-img" alt="${prod.nombre}" style="cursor:pointer;">
           <div class="card-body text-center d-flex flex-column align-items-center">
             <h5 class="card-title">${prod.nombre}</h5>
             <p class="card-text mb-2">$${formatearPrecio(prod.precio)}</p>
@@ -212,9 +211,15 @@ async function cargarProductos() {
       `;
 
       contenedor.appendChild(col);
+
+      // Click en la imagen para ir a la página de detalle
+      const img = col.querySelector('.producto-img');
+      img.addEventListener('click', () => {
+        window.location.href = `producto-cliente.html?id=${prod.id}`;
+      });
     });
 
-    // Inicializar botones de carrito y favoritos
+    // Inicializar botones de carrito
     document.querySelectorAll('.add-cart').forEach(btn => {
       btn.addEventListener('click', () => {
         const card = btn.closest('.card');
