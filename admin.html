@@ -20,7 +20,7 @@
   <div class="container-fluid d-flex align-items-center">
 
     <!-- Logo -->
-    <a class="navbar-brand d-flex align-items-center me-3" href="#">
+    <a class="navbar-brand d-flex align-items-center me-3" href="admin.html">
       <img src="img/logo.png" alt="Logo Tienda">
     </a>
 
@@ -29,18 +29,23 @@
       <i class="bi bi-list fs-3"></i>
     </button>
 
-    <!-- Panel + Notificación -->
-    <div class="d-flex align-items-center">
-      <h5 class="mb-0 titulo-admin">Panel Administrador</h5>
-      <button class="btn btn-outline-success ms-3">
+    <!-- Panel -->
+    <h5 class="mb-0 titulo-admin me-auto">Panel Administrador</h5>
+
+    <!-- Notificación + Cerrar sesión -->
+    <div class="d-flex align-items-center gap-2">
+      <button class="btn btn-notificacion position-relative">
         <i class="bi bi-bell"></i>
+        <!-- Badge opcional -->
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          3
+        </span>
+      </button>
+
+      <button class="btn btn-cerrar-sesion" id="cerrarSesion">
+        <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
       </button>
     </div>
-
-    <!-- Cerrar sesión -->
-    <button class="btn btn-danger ms-auto" id="cerrarSesion">
-      <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
-    </button>
   </div>
 </nav>
 

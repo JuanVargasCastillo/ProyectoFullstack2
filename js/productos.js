@@ -11,12 +11,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const hashToCategoria = {
     "Hombre": "Hombre",
     "Mujer": "Mujer",
-    "Ninos": "Niños",
+    "Niños": "Niños",
     "Accesorios": "Accesorios"
   };
 
-  // Detectar categoría inicial desde hash
-  let categoriaSeleccionada = hashToCategoria[window.location.hash.substring(1)] || "all";
+  // Detectar categoría inicial desde hash (decodificando caracteres especiales)
+  let categoriaSeleccionada = hashToCategoria[decodeURIComponent(window.location.hash.substring(1))] || "all";
 
   // Cargar productos
   async function cargarProductos() {
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const res = await fetch(API_URL);
       let productos = await res.json();
 
-      // Filtrar por categoría
+      // Filtrar por categoría seleccionada
       if (categoriaSeleccionada !== "all") {
         productos = productos.filter(p => p.categoria === categoriaSeleccionada);
       }
@@ -38,33 +38,43 @@ document.addEventListener("DOMContentLoaded", () => {
   // Renderizar productos como cards
   function renderProductosCards(productos) {
     tablaProductos.innerHTML = "";
+
     productos.forEach(prod => {
       const stockCritico = prod.stock <= 1;
-      const card = `
-        <div class="col-md-3 col-sm-6 mb-4">
-          <div class="card shadow-sm h-100">
-            <img src="${prod.imagen}" class="card-img-top" alt="${prod.nombre}">
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">${prod.nombre}</h5>
-              <p class="card-text">${prod.descripcion}</p>
-              <p class="fw-bold">$${prod.precio.toLocaleString()}</p>
-              ${stockCritico ? '<span class="badge bg-danger mb-2">Stock Crítico</span>' : ''}
-              <p>Stock: ${prod.stock}</p>
-              <small class="text-muted">Categoría: ${prod.categoria}</small>
-              <div class="mt-auto d-flex justify-content-between pt-3">
-                <button class="btn btn-sm btn-warning" 
-                  onclick="editarProducto(${prod.id}, '${prod.nombre}', ${prod.precio}, '${prod.descripcion}', '${prod.imagen}', '${prod.categoria}', ${prod.stock})">
-                  <i class="bi bi-pencil"></i>
-                </button>
-                <button class="btn btn-sm btn-danger" onclick="eliminarProducto(${prod.id})">
-                  <i class="bi bi-trash"></i>
-                </button>
-              </div>
+      const cardDiv = document.createElement("div");
+      cardDiv.className = "col-md-3 col-sm-6 mb-4";
+
+      cardDiv.innerHTML = `
+        <div class="card shadow-sm h-100">
+          <img src="${prod.imagen}" class="card-img-top" alt="${prod.nombre}">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">${prod.nombre}</h5>
+            <p class="card-text">${prod.descripcion}</p>
+            <p class="fw-bold">$${prod.precio.toLocaleString()}</p>
+            ${stockCritico ? '<span class="badge bg-danger mb-2">Stock Crítico</span>' : ''}
+            <p>Stock: ${prod.stock}</p>
+            <small class="text-muted">Categoría: ${prod.categoria}</small>
+            <div class="mt-auto d-flex justify-content-between pt-3">
+              <button class="btn btn-sm btn-warning btn-editar">
+                <i class="bi bi-pencil"></i>
+              </button>
+              <button class="btn btn-sm btn-danger btn-eliminar">
+                <i class="bi bi-trash"></i>
+              </button>
             </div>
           </div>
         </div>
       `;
-      tablaProductos.insertAdjacentHTML("beforeend", card);
+
+      // Asignar eventos
+      cardDiv.querySelector(".btn-editar").addEventListener("click", () => {
+        editarProducto(prod.id, prod.nombre, prod.precio, prod.descripcion, prod.imagen, prod.categoria, prod.stock);
+      });
+      cardDiv.querySelector(".btn-eliminar").addEventListener("click", () => {
+        eliminarProducto(prod.id);
+      });
+
+      tablaProductos.appendChild(cardDiv);
     });
   }
 
@@ -104,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Editar
+  // Editar producto
   window.editarProducto = (id, nombre, precio, descripcion, imagen, categoria, stock) => {
     document.getElementById("productoId").value = id;
     document.getElementById("nombre").value = nombre;
@@ -119,7 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
     modalProducto.show();
   };
 
-  // Eliminar
+  // Eliminar producto
   window.eliminarProducto = async (id) => {
     if (confirm("¿Seguro que deseas eliminar este producto?")) {
       try {
@@ -140,7 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Detectar cambios en hash (categoría)
   window.addEventListener("hashchange", () => {
-    const newHash = window.location.hash.substring(1);
+    const newHash = decodeURIComponent(window.location.hash.substring(1));
     categoriaSeleccionada = hashToCategoria[newHash] || "all";
     cargarProductos();
   });

@@ -15,26 +15,34 @@
 <!-- NAVBAR -->
 <nav class="navbar navbar-light bg-light shadow-sm py-2">
   <div class="container-fluid d-flex align-items-center">
+
+    <!-- Logo -->
     <a class="navbar-brand d-flex align-items-center me-3" href="admin.html">
       <img src="img/logo.png" alt="Logo Tienda">
     </a>
 
+    <!-- Botón menú lateral -->
     <button class="btn btn-hamburguesa me-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral">
       <i class="bi bi-list fs-3"></i>
     </button>
-    
 
-    <!-- Panel + Notificación -->
-    <div class="d-flex align-items-center">
-      <h5 class="mb-0 titulo-admin">Panel Administrador</h5>
-      <button class="btn btn-outline-success ms-3">
+    <!-- Panel -->
+    <h5 class="mb-0 titulo-admin me-auto">Panel Administrador</h5>
+
+    <!-- Notificación + Cerrar sesión -->
+    <div class="d-flex align-items-center gap-2">
+      <button class="btn btn-notificacion position-relative">
         <i class="bi bi-bell"></i>
+        <!-- Badge opcional -->
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          3
+        </span>
+      </button>
+
+      <button class="btn btn-cerrar-sesion" id="cerrarSesion">
+        <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
       </button>
     </div>
-
-    <button class="btn btn-danger ms-auto" id="cerrarSesion">
-      <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
-    </button>
   </div>
 </nav>
 
@@ -61,17 +69,17 @@
           <span>Categorías</span>
           <i class="bi bi-chevron-down"></i>
         </a>
-
         <div class="collapse" id="collapseCategorias">
           <ul class="list-unstyled ps-3">
             <li><a href="productos.html#Hombre" class="nav-link">Hombre</a></li>
             <li><a href="productos.html#Mujer" class="nav-link">Mujer</a></li>
-            <li><a href="productos.html#Ninos" class="nav-link">Niños</a></li>
+            <li><a href="productos.html#Niños" class="nav-link">Niños</a></li>
             <li><a href="productos.html#Accesorios" class="nav-link">Accesorios</a></li>
           </ul>
         </div>
       </li>
     </ul>
+
     <ul class="list-unstyled mt-auto">
       <li><a href="#" class="nav-link"><i class="bi bi-gear"></i> Configuración</a></li>
       <li><a href="#" class="nav-link"><i class="bi bi-question-circle"></i> Ayuda</a></li>
@@ -143,6 +151,7 @@
   </div>
 </div>
 
+<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="js/productos.js"></script>
 </body>

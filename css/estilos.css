@@ -366,13 +366,13 @@ body {
 
 /* Badge stock crítico */
 .badge.bg-danger {
-  background-color: #dc3545 !important;
+  background-color: #fdbfd3 !important;
   font-size: 0.8rem;
 }
 
 /* Botones */
 .card .btn-warning {
-  background-color: #fdbfd3;
+  background-color: #82aa31;
   border: none;
   color: #333;
   font-weight: bold;
@@ -381,11 +381,16 @@ body {
   background-color: #fa9fbc;
 }
 .card .btn-danger {
-  background-color: #dc3545;
+  background-color: #fa9fbc;
   border: none;
 }
 .card .btn-danger:hover {
-  background-color: #b02a37;
+  background-color: #ff5c8d;
+}
+
+/* Mantener el botón rosa, pero ícono negro */
+.card .btn-danger i {
+  color: #333; /* ícono negro */
 }
 
 .titulo-admin {
@@ -546,4 +551,34 @@ body {
   }
 }
 
+-----------
+/* Botón de cerrar sesión */
+.btn-cerrar-sesion {
+  background-color: #198754; /* Verde estilo Bootstrap success */
+  color: white;
+  border: none;
+  padding: 0.375rem 0.75rem;
+}
 
+.btn-cerrar-sesion:hover {
+  background-color: #82aa31;
+  color: white;
+}
+
+/* Botón de notificación */
+.btn-notificacion {
+  background-color: transparent;
+  border: none;
+  color: #000000; /* mismo verde */
+  font-size: 1.2rem;
+  position: relative;
+}
+
+.btn-notificacion:hover {
+  color: #157347;
+}
+
+/* Badge de notificación */
+.btn-notificacion .badge {
+  font-size: 0.6rem;
+}
