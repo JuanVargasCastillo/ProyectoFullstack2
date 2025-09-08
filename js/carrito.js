@@ -67,6 +67,23 @@ function render(){
   totalBrutoEl.textContent = `$${formatearPrecio(total)}`;
   ahorroEl.textContent = `$${formatearPrecio(ahorro)}`;
   subtotalEl.textContent = `$${formatearPrecio(subtotal)}`;
+  function actualizarResumen() {
+
+  // Aquí IVA
+  let subtotalTexto = document.getElementById("subtotal").textContent.replace(/\$|\./g, "").trim();
+  let subtotal = parseInt(subtotalTexto) || 0;
+
+  if (subtotal > 0) {
+    let neto = Math.round(subtotal / 1.19);
+    let iva = subtotal - neto;
+
+    document.getElementById("iva").textContent = "$" + iva.toLocaleString("es-CL");
+  }
+}
+
+// Llamar después de actualizar el carrito
+actualizarResumen();
+
 
   // Persistir estado
   guardar();

@@ -1,42 +1,48 @@
-/* Navbar */
+/* ===========================
+   HEAD & BASE
+=========================== */
+body {
+    background-color: #ffffff !important;
+}
+
+
+/* ===========================
+   NAVBAR
+=========================== */
 .navbar {
     background-color: #ffffff !important;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-.navbar .form-control {
-  border: 2px solid #dddddd;       
-  border-radius: 0.5rem;       
-  padding: 0.5rem 0.65rem;       
-  transition: border-color 0.3s, box-shadow 0.3s;
-  box-shadow: 0 0 5px rgba(0,0,0,0.05); 
-}
-
-
-.navbar .form-control:focus {
-  border-color: #f8a9c4;         
-  outline: none;
-  box-shadow: 
-    0 0 10px rgba(248, 169, 196, 0.6),  
-    0 0 20px rgba(192, 192, 192, 0.3); 
-}
-
-
-body {
-    background-color: #ffffff !important;
 }
 
 .navbar-brand img {
     max-height: 100px;
     width: auto;
 }
+
 .navbar-brand {
     color: #82aa31;
     font-size: 1.8rem;
 }
+
 .navbar-nav .nav-link.active {
     font-weight: bold;
     color: #82aa31;
+}
+
+.navbar .form-control {
+    border: 2px solid #dddddd;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.65rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 0 5px rgba(0,0,0,0.05);
+}
+
+.navbar .form-control:focus {
+    border-color: #f8a9c4;
+    outline: none;
+    box-shadow:
+      0 0 10px rgba(248, 169, 196, 0.6),
+      0 0 20px rgba(192, 192, 192, 0.3);
 }
 
 /* Iconos y botones navbar */
@@ -44,11 +50,28 @@ body {
     vertical-align: middle;
     color: #82aa31;
 }
+
 .navbar .badge {
     font-size: 0.65rem;
     background-color: #fdbfd3;
     color: #ffffff;
 }
+
+.navbar .nav-link#carrito i.bi-cart3,
+.navbar .nav-link#favoritos i.bi-heart {
+    color: #f8a9c4 !important;
+    transition: color 0.3s;
+}
+
+.navbar .nav-link#carrito:hover i.bi-cart3,
+.navbar .nav-link#favoritos:hover i.bi-heart {
+    color: #ff5c8d !important;
+}
+
+
+/* ===========================
+   BOTONES GENERALES
+=========================== */
 .btn-outline-primary {
     border-color: #82aa31;
     color: #82aa31;
@@ -59,6 +82,7 @@ body {
     border-color: #82aa31;
     color: #ffffff;
 }
+
 .btn-success {
     background-color: #bfd64f;
     border-color: #bfd64f;
@@ -68,6 +92,91 @@ body {
     border-color: #82aa31;
 }
 
+.btn-primary {
+    background-color: #fdbfd3;
+    border-color: #fdbfd3;
+}
+.btn-primary:hover {
+    background-color: #82aa31;
+    border-color: #82aa31;
+    color: #fff;
+}
+
+.btn-hamburguesa {
+    border-color: #82aa31;
+    color: #82aa31;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+.btn-hamburguesa:hover {
+    background-color: #82aa31;
+    color: white;
+    border-color: #82aa31;
+}
+
+.btn-cerrar-sesion {
+    background-color: #f8a9c4;
+    color: #fff;
+    border: none;
+    transition: background-color 0.3s;
+}
+.btn-cerrar-sesion:hover {
+    background-color: #f47ba0;
+    color: #fff;
+}
+
+.btn-volver {
+    background: none !important;
+    border: 2px solid #bfd64f !important;
+    color: #bfd64f !important;
+    transition: all 0.3s ease;
+}
+.btn-volver:hover {
+    background: #bfd64f !important;
+    color: #ffffff !important;
+    border: 2px solid #bfd64f !important;
+}
+
+.btn-pagar {
+    width: 100%;
+    background: #bfd64f;
+    color: white;
+    font-weight: bold;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+.btn-pagar:hover {
+    background: #ffacc7;
+    color: white;
+}
+
+.btn-seguir {
+    width: 100%;
+    margin-top: 10px;
+    color: #82aa31;
+    background: none;
+    border: none;
+    font-weight: bold;
+    transition: text-decoration 0.2s ease;
+}
+.btn-seguir:hover {
+    text-decoration: underline;
+    color: #82aa31;
+    font-weight: bold;
+}
+
+#btnCupon {
+    background-color: #bfd64f;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+
+/* ===========================
+   BODY
+=========================== */
+
 /* Aviso de envíos */
 .bg-success {
     background-color: #82aa31 !important;
@@ -75,7 +184,6 @@ body {
 .bg-success strong {
     color: #ffffff;
 }
-
 
 /* Offcanvas menú lateral */
 .offcanvas-body a.nav-link {
@@ -105,32 +213,77 @@ body {
     border-radius: 8px;
 }
 
-/* Productos */
+/* Productos - Cards */
+#tablaProductos .col-md-3 {
+    margin-bottom: 20px;
+}
+
 .card {
     border: 1px solid #eee;
-    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 100%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .card:hover {
-    transform: scale(1.03);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    background-color: #fff;
+    padding: 8px;
+}
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .card-title {
-    color: #000000;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
 }
-.btn-primary {
-    background-color: #fdbfd3;
-    border-color: #fdbfd3;
+.card-text {
+    font-size: 0.9rem;
+    color: #555;
+    flex-grow: 1;
 }
-.btn-primary:hover {
+.card .fw-bold {
+    color: #82aa31;
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+}
+.card .btn-warning {
     background-color: #82aa31;
-    border-color: #82aa31;
-    color: #fff;
+    border: none;
+    color: #333;
+    font-weight: bold;
 }
+.card .btn-warning:hover {
+    background-color: #fa9fbc;
+}
+.card .btn-danger {
+    background-color: #fa9fbc;
+    border: none;
+}
+.card .btn-danger:hover {
+    background-color: #ff5c8d;
+}
+.card .btn-danger i {
+    color: #333;
+}
+
 /* Carrito lateral */
 .carrito-lateral {
     position: fixed;
     top: 0;
-    right: -400px; /* oculto por defecto */
+    right: -400px;
     width: 400px;
     height: 100%;
     background-color: #fff;
@@ -141,7 +294,6 @@ body {
     flex-direction: column;
     padding: 20px;
 }
-
 .carrito-header {
     display: flex;
     justify-content: space-between;
@@ -149,26 +301,15 @@ body {
     border-bottom: 1px solid #ddd;
     padding-bottom: 10px;
 }
-
 .carrito-body {
     flex: 1;
     overflow-y: auto;
     margin-top: 10px;
 }
-
 .carrito-footer {
     border-top: 1px solid #ddd;
     padding-top: 10px;
 }
-
-.btn-cerrar {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-/* Fondo semitransparente */
 .fondo-carrito {
     position: fixed;
     top: 0;
@@ -177,37 +318,10 @@ body {
     height: 100%;
     background-color: rgba(255, 179, 211, 0.411);
     z-index: 1040;
-    display: none; /* oculto por defecto */
+    display: none;
 }
 
-.btn-cerrar-sesion {
-  background-color: #f8a9c4;
-  color: #fff;
-  border: none;
-  transition: background-color 0.3s;
-}
-.btn-cerrar-sesion:hover {
-  background-color: #f47ba0;
-  color: #fff;
-}
-
-
-/* Color por defecto del botón */
-.btn-hamburguesa {
-    border-color: #82aa31;  /* borde verde */
-    color: #82aa31;         /* icono verde */
-    background-color: transparent; /* fondo transparente */
-    transition: all 0.3s ease;
-}
-
-/* Al pasar el mouse */
-.btn-hamburguesa:hover {
-    background-color: #82aa31; /* fondo verde */
-    color: white;               /* icono blanco */
-    border-color: #82aa31;      /* mantiene el borde verde */
-}
-
-
+/* Elementos compra */
 .card-producto {
     border: 1px solid #eee;
     border-radius: 10px;
@@ -237,351 +351,138 @@ body {
     margin-bottom: 20px;
 }
 
-/* Ir a pagar */
-.btn-pagar {
-    width: 100%;
-    background: #bfd64f;  
-    color: white;
-    font-weight: bold;
-    border: none;
-    transition: background-color 0.3s ease;
-}
-.btn-pagar:hover {
-    background: #ffacc7;   
-    color: white;
-}
-
-/* Seguir comprando */
-.btn-seguir {
-    width: 100%;
-    margin-top: 10px;
-    color: #82aa31;
-    background: none;
-    border: none;
-    font-weight: bold;
-    transition: text-decoration 0.2s ease;
-}
-.btn-seguir:hover {
-    text-decoration: underline; 
-    font-weight: bold; 
-}
-.btn-seguir:hover {
-    text-decoration: underline; 
-    color: #82aa31;             
-    font-weight: bold;
-}
-
-/* Botón cupón */
-#btnCupon {
-    background-color: #bfd64f; 
-    color: white;
-    border: none;
-    transition: background-color 0.3s ease;
-}
-
-.msg-cupon-rosado {
-  color: #ffacc7 !important;
-  font-weight: bold;
-}
-
-
-
 .precio {
-  color: #111111; 
-  font-weight: bold;
+    color: #111111;
+    font-weight: bold;
+}
+
+/* Botones cantidad y eliminar */
+.btn-cantidad {
+    background: transparent;
+    border: 2px solid #f8a9c4;
+    color: #f8a9c4;
+    padding: 0.2rem 0.5rem;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+.btn-cantidad:hover {
+    background: #f8c6d3;
+    color: #fff;
+    border-color: #f8c6d3;
+}
+.btn-cantidad:active {
+    background-color: #ff8fa3;
+    border-color: #ff8fa3;
+    color: white;
+}
+.btn-eliminar {
+    background: transparent;
+    border: none;
+    color: #f8a9c4;
+    transition: color 0.3s;
+}
+.btn-eliminar:hover {
+    color: #ff5c8d;
 }
 
 .btn-trash {
-  color: #f8a9c4;           
-  border: none;
-  background: transparent;
-  transition: color 0.3s ease;
-  font-size: 18px;           
-  cursor: pointer;
-}
-
-.btn-trash:hover {
-  color: #ff5c8d;           
-}
-
-
-/* === GRID DE PRODUCTOS (Bootstrap maneja columnas) === */
-#tablaProductos .col-md-3 {
-  margin-bottom: 20px;
-}
-
-/* === CARDS === */
-.card {
-  border: 1px solid #eee;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  height: 100%;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* Imagen */
-.card img {
-  width: 100%;
-  height: 200px;          /* altura uniforme */
-  object-fit: contain;    /* que se vea completa */
-  background-color: #fff;
-  padding: 8px;
-}
-
-/* Contenido */
-.card-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-/* Título */
-.card-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 0.5rem;
-}
-
-/* Descripción */
-.card-text {
-  font-size: 0.9rem;
-  color: #555;
-  flex-grow: 1;
-}
-
-/* Precio */
-.card .fw-bold {
-  color: #82aa31;
-  font-size: 1.1rem;
-  margin-top: 0.5rem;
-}
-
-/* Badge stock crítico */
-.badge.bg-danger {
-  background-color: #fdbfd3 !important;
-  font-size: 0.8rem;
-}
-
-/* Botones */
-.card .btn-warning {
-  background-color: #82aa31;
-  border: none;
-  color: #333;
-  font-weight: bold;
-}
-.card .btn-warning:hover {
-  background-color: #fa9fbc;
-}
-.card .btn-danger {
-  background-color: #fa9fbc;
-  border: none;
-}
-.card .btn-danger:hover {
-  background-color: #ff5c8d;
-}
-
-/* Mantener el botón rosa, pero ícono negro */
-.card .btn-danger i {
-  color: #333; /* ícono negro */
-}
-
-.titulo-admin {
-  color: #82aa31;
-  font-weight: bold;
-}
-
-
-
-.btn-cantidad {
-  color: #f8c6d3;             
-  background-color: transparent; 
-  border: 2px solid #f8c6d3;   
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-
-
-.btn-cantidad:hover {
-  background-color: #f8c6d3;   
-  color: white;               
-  cursor: pointer;
-}
-
-
-.btn-cantidad:active {
-  background-color: #ff8fa3;   
-  border-color: #ff8fa3;
-  color: white;
-}
-
-/* Iconos favoritos y carrito rosados - fuerza el color */
-.navbar .nav-link#carrito i.bi-cart3,
-.navbar .nav-link#favoritos i.bi-heart {
-    color: #f8a9c4 !important;  /* Rosa clarito */
+    color: #f8a9c4;
+    border: none;
+    background: transparent;
+    font-size: 18px;
+    cursor: pointer;
     transition: color 0.3s;
 }
-
-.navbar .nav-link#carrito:hover i.bi-cart3,
-.navbar .nav-link#favoritos:hover i.bi-heart {
-    color: #ff5c8d !important;  /* Rosa más intenso al pasar el mouse */
+.btn-trash:hover {
+    color: #ff5c8d;
 }
 
-
-
-.add-fav {
-  background: none !important;
-  border: none !important;
-  padding: 0.2rem;
-  transition: none;  /* el color se maneja en JS */
-}
-
-/* Botones "volver" estilo borde verde y sin relleno */
-.btn-volver {
-  background: none !important;         /* Sin fondo */
-  border: 2px solid #bfd64f !important; /* Borde verde */
-  color: #bfd64f !important;           /* Texto verde */
-  transition: all 0.3s ease;
-}
-
-/* Al pasar el mouse: fondo verde, texto blanco */
-.btn-volver:hover {
-  background: #bfd64f !important; 
-  color: #ffffff !important;
-  border: 2px solid #bfd64f !important; /* Mantener borde */
-}
-
-/* Botones + y - rosa clarito, borde solo */
-.btn-cantidad {
-  background: transparent;
-  border: 2px solid #f8a9c4;
-  color: #f8a9c4;
-  padding: 0.2rem 0.5rem;
-  font-weight: bold;
-  border-radius: 5px;
-  transition: all 0.3s;
-}
-
-/* Hover: relleno rosa oscuro */
-.btn-cantidad:hover {
-  background: #f8c6d3;
-  color: #fff;
-  border-color: #f8c6d3;
-  box-shadow: none;
-}
-
-/* Botón eliminar con corazón/basurero rosa */
-.btn-eliminar {
-  background: transparent;
-  border: none;
-  color: #f8a9c4;
-  transition: color 0.3s;
-}
-
-.btn-eliminar:hover {
-  color: #ff5c8d;
+.msg-cupon-rosado {
+    color: #ffacc7 !important;
+    font-weight: bold;
 }
 
 #fav-count,
 #cart-count {
-  background-color: #ff5c8d !important; /* mismo rosa */
-  color: #fff; /* texto en blanco */
-  border: 1px solid #fff; /* opcional, para destacarlo */
+    background-color: #ff5c8d !important;
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+.add-fav {
+    background: none !important;
+    border: none !important;
+    padding: 0.2rem;
+    transition: none;
+}
+
+.titulo-admin {
+    color: #82aa31;
+    font-weight: bold;
 }
 
 
-
-/* Fondo del footer */
+/* ===========================
+   FOOTER
+=========================== */
 .footer.bg-footer {
-  background-color: #fff1f6; 
-  color: #333;
-  padding-bottom: 1.5rem;
+    background-color: #fff1f6;
+    color: #333;
+    padding-bottom: 1.5rem;
 }
-
-/* Títulos */
 .footer-title {
-  color: #f85c8d; /* rosa intenso */
-  margin-bottom: 0.75rem;
+    color: #f85c8d;
+    margin-bottom: 0.75rem;
 }
-
-/* Enlaces */
 .footer-link {
-  color: #f85c8d;
-  text-decoration: none;
-  transition: color 0.3s;
+    color: #f85c8d;
+    text-decoration: none;
+    transition: color 0.3s;
 }
-
 .footer-link:hover {
-  color: #ff1a6b; /* rosa más oscuro al pasar el mouse */
-  text-decoration: underline;
+    color: #ff1a6b;
+    text-decoration: underline;
 }
-
-/* Redes sociales */
 .footer-social i {
-  color: #f85c8d;
-  font-size: 1.4rem;
-  transition: color 0.3s, transform 0.3s;
+    color: #f85c8d;
+    font-size: 1.4rem;
+    transition: color 0.3s, transform 0.3s;
 }
-
 .footer-social:hover i {
-  color: #ff1a6b;
-  transform: scale(1.2);
+    color: #ff1a6b;
+    transform: scale(1.2);
 }
-
-/* Derechos de autor */
 .footer-copy {
-  color: #f85c8d;
-  font-size: 0.9rem;
+    color: #f85c8d;
+    font-size: 0.9rem;
 }
-
-/* Adaptable a pantallas pequeñas */
 @media (max-width: 768px) {
-  .footer-title {
-    text-align: center;
-  }
-  .footer-social {
-    display: inline-block;
-    margin-bottom: 0.5rem;
-  }
+    .footer-title {
+        text-align: center;
+    }
+    .footer-social {
+        display: inline-block;
+        margin-bottom: 0.5rem;
+    }
 }
 
------------
-/* Botón de cerrar sesión */
-.btn-cerrar-sesion {
-  background-color: #198754; /* Verde estilo Bootstrap success */
-  color: white;
-  border: none;
-  padding: 0.375rem 0.75rem;
-}
 
-.btn-cerrar-sesion:hover {
-  background-color: #82aa31;
-  color: white;
-}
-
-/* Botón de notificación */
+/* ===========================
+   EXTRA
+=========================== */
 .btn-notificacion {
-  background-color: transparent;
-  border: none;
-  color: #000000; /* mismo verde */
-  font-size: 1.2rem;
-  position: relative;
+    background-color: transparent;
+    border: none;
+    color: #000000;
+    font-size: 1.2rem;
+    position: relative;
 }
-
 .btn-notificacion:hover {
-  color: #157347;
+    color: #157347;
 }
-
-/* Badge de notificación */
 .btn-notificacion .badge {
-  font-size: 0.6rem;
+    font-size: 0.6rem;
 }
 
 #producto-precio {
